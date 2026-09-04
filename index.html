@@ -1,2182 +1,1205 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="AI automation and Agentic AI solutions for modern businesses.">
-
-    <title>Agentic AI | Intelligent Automation</title>
-
-
-    <style>
-
-        /* ================================
-           RESET
-        ================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            background: #050505;
-
-            color: #ffffff;
-
-            overflow-x: hidden;
-
-        }
-
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-
-        button {
-            font-family: inherit;
-        }
-
-
-        /* ================================
-           VARIABLES
-        ================================= */
-
-        :root {
-
-            --bg: #050505;
-
-            --card: #0c0c0c;
-
-            --border: rgba(255,255,255,0.10);
-
-            --text: #ffffff;
-
-            --muted: #999999;
-
-            --accent: #7c5cff;
-
-            --accent2: #00d9ff;
-
-            --gradient:
-                linear-gradient(
-                    135deg,
-                    #7c5cff,
-                    #00d9ff
-                );
-
-        }
-
-
-        /* ================================
-           BACKGROUND GLOW
-        ================================= */
-
-        body::before {
-
-            content: "";
-
-            position: fixed;
-
-            width: 500px;
-            height: 500px;
-
-            top: -200px;
-            left: -150px;
-
-            background: #6246ff;
-
-            filter: blur(180px);
-
-            opacity: 0.12;
-
-            pointer-events: none;
-
-            z-index: -1;
-
-        }
-
-
-        body::after {
-
-            content: "";
-
-            position: fixed;
-
-            width: 500px;
-            height: 500px;
-
-            right: -200px;
-            bottom: -200px;
-
-            background: #00cfff;
-
-            filter: blur(180px);
-
-            opacity: 0.08;
-
-            pointer-events: none;
-
-            z-index: -1;
-
-        }
-
-
-        /* ================================
-           NAVBAR
-        ================================= */
-
-        nav {
-
-            position: fixed;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-
-            height: 78px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 0 7%;
-
-            background:
-                rgba(5,5,5,0.75);
-
-            backdrop-filter: blur(20px);
-
-            border-bottom:
-                1px solid rgba(255,255,255,0.06);
-
-            z-index: 1000;
-
-        }
-
-
-        .logo {
-
-            font-size: 22px;
-
-            font-weight: 700;
-
-            letter-spacing: -1px;
-
-        }
-
-
-        .logo span {
-
-            background: var(--gradient);
-
-            -webkit-background-clip: text;
-
-            -webkit-text-fill-color: transparent;
-
-        }
-
-
-        .nav-links {
-
-            display: flex;
-
-            gap: 38px;
-
-            list-style: none;
-
-        }
-
-
-        .nav-links a {
-
-            color: #aaa;
-
-            font-size: 14px;
-
-            transition: 0.3s;
-
-        }
-
-
-        .nav-links a:hover {
-
-            color: white;
-
-        }
-
-
-        .nav-button {
-
-            padding: 11px 20px;
-
-            border-radius: 30px;
-
-            background: white;
-
-            color: black;
-
-            font-size: 13px;
-
-            font-weight: 600;
-
-            transition: 0.3s;
-
-        }
-
-
-        .nav-button:hover {
-
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 10px 30px rgba(255,255,255,0.15);
-
-        }
-
-
-        /* ================================
-           HERO
-        ================================= */
-
-        .hero {
-
-            min-height: 100vh;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-
-            padding:
-                140px 7%
-                100px;
-
-            position: relative;
-
-        }
-
-
-        .hero-content {
-
-            max-width: 950px;
-
-            margin: auto;
-
-        }
-
-
-        .badge {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            padding: 8px 15px;
-
-            border:
-                1px solid rgba(124,92,255,0.35);
-
-            border-radius: 50px;
-
-            background:
-                rgba(124,92,255,0.08);
-
-            color: #c4baff;
-
-            font-size: 12px;
-
-            margin-bottom: 28px;
-
-        }
-
-
-        .badge-dot {
-
-            width: 7px;
-            height: 7px;
-
-            border-radius: 50%;
-
-            background: #8d75ff;
-
-            box-shadow:
-                0 0 12px #8d75ff;
-
-        }
-
-
-        .hero h1 {
-
-            font-size:
-                clamp(48px, 7vw, 92px);
-
-            line-height: 0.98;
-
-            letter-spacing: -5px;
-
-            font-weight: 700;
-
-            margin-bottom: 28px;
-
-        }
-
-
-        .gradient-text {
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff,
-                    #9f8cff,
-                    #5fe7ff
-                );
-
-            -webkit-background-clip: text;
-
-            -webkit-text-fill-color: transparent;
-
-        }
-
-
-        .hero p {
-
-            max-width: 650px;
-
-            margin: auto;
-
-            color: #999;
-
-            font-size: 17px;
-
-            line-height: 1.7;
-
-        }
-
-
-        .hero-buttons {
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 15px;
-
-            margin-top: 38px;
-
-        }
-
-
-        .primary-btn {
-
-            padding: 15px 27px;
-
-            border-radius: 8px;
-
-            background: var(--gradient);
-
-            color: white;
-
-            font-weight: 600;
-
-            font-size: 14px;
-
-            transition: 0.3s;
-
-            border: none;
-
-            cursor: pointer;
-
-        }
-
-
-        .primary-btn:hover {
-
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 15px 40px rgba(124,92,255,0.25);
-
-        }
-
-
-        .secondary-btn {
-
-            padding: 15px 27px;
-
-            border-radius: 8px;
-
-            border:
-                1px solid rgba(255,255,255,0.15);
-
-            color: white;
-
-            font-size: 14px;
-
-            transition: 0.3s;
-
-        }
-
-
-        .secondary-btn:hover {
-
-            background: #111;
-
-            transform: translateY(-3px);
-
-        }
-
-
-        /* ================================
-           AI VISUAL
-        ================================= */
-
-        .ai-visual {
-
-            width: 300px;
-            height: 300px;
-
-            margin: 70px auto 0;
-
-            position: relative;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-        }
-
-
-        .orb {
-
-            width: 130px;
-            height: 130px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle at 35% 30%,
-                    #ffffff,
-                    #9c89ff 20%,
-                    #674cff 45%,
-                    #171126 75%
-                );
-
-            box-shadow:
-                0 0 50px rgba(124,92,255,0.5),
-                0 0 120px rgba(0,217,255,0.15);
-
-            animation:
-                float 4s ease-in-out infinite;
-
-        }
-
-
-        .orbit {
-
-            position: absolute;
-
-            border:
-                1px solid rgba(124,92,255,0.3);
-
-            border-radius: 50%;
-
-        }
-
-
-        .orbit.one {
-
-            width: 230px;
-            height: 90px;
-
-            transform:
-                rotate(30deg);
-
-            animation:
-                rotate 7s linear infinite;
-
-        }
-
-
-        .orbit.two {
-
-            width: 230px;
-            height: 90px;
-
-            transform:
-                rotate(-30deg);
-
-            animation:
-                rotateReverse 9s linear infinite;
-
-        }
-
-
-        .orbit.three {
-
-            width: 280px;
-            height: 130px;
-
-            transform:
-                rotate(90deg);
-
-            animation:
-                rotate 12s linear infinite;
-
-        }
-
-
-        @keyframes float {
-
-            0%,100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-
-        }
-
-
-        @keyframes rotate {
-
-            from {
-                transform:
-                    rotate(30deg);
-            }
-
-            to {
-                transform:
-                    rotate(390deg);
-            }
-
-        }
-
-
-        @keyframes rotateReverse {
-
-            from {
-                transform:
-                    rotate(-30deg);
-            }
-
-            to {
-                transform:
-                    rotate(-390deg);
-            }
-
-        }
-
-
-        /* ================================
-           SECTION
-        ================================= */
-
-        section {
-
-            padding:
-                120px 7%;
-
-        }
-
-
-        .section-header {
-
-            max-width: 700px;
-
-            margin-bottom: 60px;
-
-        }
-
-
-        .section-label {
-
-            color: #8e7bff;
-
-            text-transform: uppercase;
-
-            letter-spacing: 3px;
-
-            font-size: 11px;
-
-            font-weight: 600;
-
-            margin-bottom: 15px;
-
-        }
-
-
-        .section-header h2 {
-
-            font-size:
-                clamp(34px, 5vw, 55px);
-
-            letter-spacing: -2px;
-
-            line-height: 1.1;
-
-            margin-bottom: 20px;
-
-        }
-
-
-        .section-header p {
-
-            color: #888;
-
-            line-height: 1.7;
-
-            font-size: 15px;
-
-        }
-
-
-        /* ================================
-           SERVICES
-        ================================= */
-
-        .services {
-
-            max-width: 1200px;
-
-            margin: auto;
-
-        }
-
-
-        .service-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap: 18px;
-
-        }
-
-
-        .service-card {
-
-            padding: 35px;
-
-            min-height: 280px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #0d0d0d,
-                    #080808
-                );
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 14px;
-
-            position: relative;
-
-            overflow: hidden;
-
-            transition: 0.4s;
-
-        }
-
-
-        .service-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 150px;
-            height: 150px;
-
-            top: -80px;
-            right: -80px;
-
-            background: #745cff;
-
-            filter: blur(80px);
-
-            opacity: 0;
-
-            transition: 0.4s;
-
-        }
-
-
-        .service-card:hover {
-
-            transform:
-                translateY(-8px);
-
-            border-color:
-                rgba(124,92,255,0.4);
-
-        }
-
-
-        .service-card:hover::before {
-
-            opacity: 0.3;
-
-        }
-
-
-        .icon {
-
-            width: 48px;
-            height: 48px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 10px;
-
-            background:
-                rgba(124,92,255,0.12);
-
-            border:
-                1px solid rgba(124,92,255,0.2);
-
-            margin-bottom: 25px;
-
-            font-size: 21px;
-
-        }
-
-
-        .service-card h3 {
-
-            font-size: 19px;
-
-            margin-bottom: 14px;
-
-        }
-
-
-        .service-card p {
-
-            color: #888;
-
-            font-size: 14px;
-
-            line-height: 1.7;
-
-        }
-
-
-        /* ================================
-           HOW IT WORKS
-        ================================= */
-
-        .process {
-
-            max-width: 1200px;
-
-            margin: auto;
-
-        }
-
-
-        .process-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4,1fr);
-
-            gap: 20px;
-
-        }
-
-
-        .process-card {
-
-            border-top:
-                1px solid #222;
-
-            padding-top: 25px;
-
-        }
-
-
-        .process-number {
-
-            font-size: 13px;
-
-            color: #7560ff;
-
-            margin-bottom: 25px;
-
-        }
-
-
-        .process-card h3 {
-
-            margin-bottom: 12px;
-
-            font-size: 18px;
-
-        }
-
-
-        .process-card p {
-
-            color: #777;
-
-            line-height: 1.6;
-
-            font-size: 13px;
-
-        }
-
-
-        /* ================================
-           STATS
-        ================================= */
-
-        .stats {
-
-            max-width: 1200px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4,1fr);
-
-            border-top:
-                1px solid #1b1b1b;
-
-            border-bottom:
-                1px solid #1b1b1b;
-
-        }
-
-
-        .stat {
-
-            text-align: center;
-
-            padding: 45px 20px;
-
-            border-right:
-                1px solid #1b1b1b;
-
-        }
-
-
-        .stat:last-child {
-
-            border-right: none;
-
-        }
-
-
-        .stat h3 {
-
-            font-size: 38px;
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .stat p {
-
-            color: #777;
-
-            font-size: 12px;
-
-        }
-
-
-        /* ================================
-           CTA
-        ================================= */
-
-        .cta {
-
-            max-width: 1100px;
-
-            margin: 100px auto;
-
-            padding: 80px 40px;
-
-            text-align: center;
-
-            border-radius: 20px;
-
-            border:
-                1px solid rgba(124,92,255,0.25);
-
-            background:
-
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(124,92,255,0.18),
-                    transparent 55%
-                ),
-
-                #090909;
-
-        }
-
-
-        .cta h2 {
-
-            font-size:
-                clamp(36px,5vw,60px);
-
-            letter-spacing: -3px;
-
-            margin-bottom: 20px;
-
-        }
-
-
-        .cta p {
-
-            color: #888;
-
-            max-width: 550px;
-
-            margin: auto;
-
-            line-height: 1.7;
-
-        }
-
-
-        .cta .primary-btn {
-
-            display: inline-block;
-
-            margin-top: 30px;
-
-        }
-
-
-        /* ================================
-           CONTACT
-        ================================= */
-
-        .contact {
-
-            max-width: 1000px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 50px;
-
-        }
-
-
-        .contact-info h2 {
-
-            font-size: 40px;
-
-            margin-bottom: 20px;
-
-        }
-
-
-        .contact-info p {
-
-            color: #888;
-
-            line-height: 1.7;
-
-            margin-bottom: 25px;
-
-        }
-
-
-        .contact-detail {
-
-            color: #aaa;
-
-            font-size: 14px;
-
-            margin-bottom: 12px;
-
-        }
-
-
-        .contact-form {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 15px;
-
-        }
-
-
-        .contact-form input,
-        .contact-form textarea {
-
-            background: #0c0c0c;
-
-            border:
-                1px solid #222;
-
-            color: white;
-
-            padding: 15px;
-
-            border-radius: 7px;
-
-            outline: none;
-
-            font-family: inherit;
-
-            transition: 0.3s;
-
-        }
-
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-
-            border-color:
-                rgba(124,92,255,0.7);
-
-        }
-
-
-        .contact-form textarea {
-
-            min-height: 130px;
-
-            resize: vertical;
-
-        }
-
-
-        /* ================================
-           FOOTER
-        ================================= */
-
-        footer {
-
-            margin-top: 100px;
-
-            padding:
-                35px 7%;
-
-            border-top:
-                1px solid #151515;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            color: #666;
-
-            font-size: 12px;
-
-        }
-
-
-        .footer-logo {
-
-            color: white;
-
-            font-weight: 700;
-
-        }
-
-
-        /* ================================
-           SCROLL ANIMATION
-        ================================= */
-
-        .reveal {
-
-            opacity: 0;
-
-            transform:
-                translateY(30px);
-
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
-
-        }
-
-
-        .reveal.show {
-
-            opacity: 1;
-
-            transform:
-                translateY(0);
-
-        }
-
-
-        /* ================================
-           MOBILE
-        ================================= */
-
-        @media(max-width: 850px) {
-
-            .nav-links {
-
-                display: none;
-
-            }
-
-
-            .service-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .process-grid {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-            }
-
-
-            .stats {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-            }
-
-
-            .stat:nth-child(2) {
-
-                border-right: none;
-
-            }
-
-
-            .stat:nth-child(3) {
-
-                border-top:
-                    1px solid #1b1b1b;
-
-            }
-
-
-            .stat:nth-child(4) {
-
-                border-top:
-                    1px solid #1b1b1b;
-
-            }
-
-
-            .contact {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-        }
-
-
-        @media(max-width: 550px) {
-
-            nav {
-
-                padding: 0 5%;
-
-            }
-
-
-            .nav-button {
-
-                display: none;
-
-            }
-
-
-            .hero {
-
-                padding:
-                    120px 5%
-                    60px;
-
-            }
-
-
-            .hero h1 {
-
-                letter-spacing:
-                    -3px;
-
-            }
-
-
-            .hero-buttons {
-
-                flex-direction:
-                    column;
-
-            }
-
-
-            .hero-buttons a {
-
-                width: 100%;
-
-            }
-
-
-            section {
-
-                padding:
-                    80px 5%;
-
-            }
-
-
-            .process-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .stats {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .stat {
-
-                border-right: none;
-
-                border-bottom:
-                    1px solid #1b1b1b;
-
-            }
-
-
-            .stat:last-child {
-
-                border-bottom: none;
-
-            }
-
-
-            footer {
-
-                flex-direction:
-                    column;
-
-                gap: 10px;
-
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXAI - Agentic AI Solutions</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(109, 94, 252, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 25%),
+        #f7f9fc;
+      color: #111827;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    section {
+      padding: 100px 8%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 30px;
+      background: rgba(99, 102, 241, 0.1);
+      color: #4f46e5;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .section-text {
+      max-width: 650px;
+      font-size: 17px;
+      color: #667085;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      padding: 18px 8%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #5b5cf0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      color: #475467;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #4f46e5;
+    }
+
+    .nav-btn {
+      padding: 11px 20px;
+      border-radius: 30px;
+      background: #111827;
+      color: white !important;
+      font-weight: 700;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 130px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 9px 15px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+      color: #4f46e5;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6366f1;
+      box-shadow: 0 0 12px rgba(99, 102, 241, 0.8);
+    }
+
+    .hero h1 {
+      font-size: clamp(54px, 7vw, 88px);
+      line-height: 0.95;
+      letter-spacing: -5px;
+      margin-bottom: 28px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #4f46e5, #7c3aed, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 630px;
+      color: #667085;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: 40px;
+      font-weight: 700;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #111827;
+      color: white;
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.15);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid #d0d5dd;
+      color: #111827;
+    }
+
+    .btn-secondary:hover {
+      background: #f2f4f7;
+    }
+
+    /* AI ORB */
+
+    .orb-wrapper {
+      height: 500px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orb {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 30%, #ffffff, transparent 25%),
+        radial-gradient(circle at 60% 50%, #818cf8, transparent 38%),
+        radial-gradient(circle at 40% 70%, #38bdf8, transparent 35%),
+        linear-gradient(135deg, #6366f1, #9333ea);
+      box-shadow:
+        0 40px 80px rgba(99, 102, 241, 0.25),
+        inset 0 0 35px rgba(255, 255, 255, 0.45);
+      animation: floatOrb 5s ease-in-out infinite;
+    }
+
+    .orb::before {
+      content: "";
+      position: absolute;
+      inset: -25px;
+      border-radius: 50%;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    .orb::after {
+      content: "";
+      position: absolute;
+      inset: -70px;
+      border-radius: 50%;
+      border: 1px dashed rgba(99, 102, 241, 0.25);
+      animation: spin 18s linear infinite;
+    }
+
+    .ring {
+      position: absolute;
+      width: 390px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      transform: rotate(-25deg);
+      animation: ringMove 8s linear infinite;
+    }
+
+    .ring-2 {
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      border: 1px solid rgba(124, 58, 237, 0.25);
+      position: absolute;
+      animation: spinReverse 14s linear infinite;
+    }
+
+    @keyframes floatOrb {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-18px);
+      }
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spinReverse {
+      from {
+        transform: rotate(360deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    @keyframes ringMove {
+      from {
+        transform: rotate(-25deg);
+      }
+      to {
+        transform: rotate(335deg);
+      }
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 55px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 15px 45px rgba(15, 23, 42, 0.05);
+      backdrop-filter: blur(12px);
+      transition: 0.35s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(99, 102, 241, 0.12);
+      border-color: rgba(99, 102, 241, 0.25);
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      margin-bottom: 22px;
+      background: linear-gradient(
+        135deg,
+        rgba(99, 102, 241, 0.13),
+        rgba(14, 165, 233, 0.12)
+      );
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #667085;
+      font-size: 15px;
+    }
+
+    /* PROCESS */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 50px;
+    }
+
+    .process-item {
+      position: relative;
+      padding: 28px;
+      border-radius: 22px;
+      background: white;
+      border: 1px solid #eaecf0;
+      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.04);
+    }
+
+    .process-number {
+      font-size: 46px;
+      font-weight: 900;
+      opacity: 0.09;
+      position: absolute;
+      right: 22px;
+      top: 10px;
+    }
+
+    .process-item h3 {
+      margin: 25px 0 10px;
+      font-size: 20px;
+    }
+
+    .process-item p {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    /* STATS */
+
+    .stats {
+      padding: 50px 8%;
+    }
+
+    .stats-box {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(79, 70, 229, 0.92),
+          rgba(124, 58, 237, 0.9),
+          rgba(14, 165, 233, 0.9)
+        );
+      border-radius: 30px;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      color: white;
+      box-shadow: 0 25px 70px rgba(99, 102, 241, 0.2);
+    }
+
+    .stat h3 {
+      font-size: 44px;
+      margin-bottom: 5px;
+    }
+
+    .stat p {
+      opacity: 0.85;
+    }
+
+    /* WHY US */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 50px;
+    }
+
+    /* CTA */
+
+    .cta {
+      padding-top: 60px;
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: 80px 30px;
+      border-radius: 35px;
+      background:
+        radial-gradient(circle at top, rgba(99, 102, 241, 0.15), transparent 50%),
+        white;
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      box-shadow: 0 25px 70px rgba(15, 23, 42, 0.07);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(40px, 6vw, 65px);
+      line-height: 1;
+      letter-spacing: -3px;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+
+    .cta-box p {
+      color: #667085;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .contact-details h2 {
+      font-size: 48px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .contact-details p {
+      color: #667085;
+      margin-bottom: 25px;
+    }
+
+    .contact-info {
+      margin-top: 30px;
+    }
+
+    .contact-info div {
+      margin-bottom: 15px;
+      color: #475467;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 35px;
+      border-radius: 25px;
+      border: 1px solid #eaecf0;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.06);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #d0d5dd;
+      background: #f9fafb;
+      padding: 14px 16px;
+      border-radius: 12px;
+      outline: none;
+      font-family: inherit;
+      color: #111827;
+      transition: 0.3s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
+      background: white;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 12px;
+      background: #111827;
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 8%;
+      border-top: 1px solid #eaecf0;
+      background: white;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      color: #667085;
+      font-size: 14px;
+    }
+
+    /* REVEAL ANIMATION */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 950px) {
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .orb-wrapper {
+        height: 380px;
+      }
+
+      .services-grid,
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid,
+      .stats-box {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 8%;
+        right: 8%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 22px;
+        border-radius: 20px;
+        background: white;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 80px 6%;
+      }
+
+      .navbar {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .services-grid,
+      .why-grid,
+      .process-grid,
+      .stats-box {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-box {
+        gap: 30px;
+      }
+
+      .orb {
+        width: 180px;
+        height: 180px;
+      }
+
+      .ring {
+        width: 285px;
+      }
+
+      .ring-2 {
+        width: 260px;
+        height: 260px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- NAVBAR -->
 
-<!-- ==========================================
-     NAVIGATION
-=========================================== -->
+  <nav class="navbar">
+    <div class="nav-inner">
 
-<nav>
-
-    <a href="#" class="logo">
+      <a href="#" class="logo">
         NEX<span>AI</span>
-    </a>
+      </a>
 
+      <div class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-btn">Let's Talk</a>
+      </div>
 
-    <ul class="nav-links">
+      <div class="menu-btn" onclick="toggleMenu()">
+        ☰
+      </div>
 
-        <li>
-            <a href="#services">
-                Services
-            </a>
-        </li>
+    </div>
+  </nav>
 
-        <li>
-            <a href="#process">
-                How It Works
-            </a>
-        </li>
+  <!-- HERO -->
 
-        <li>
-            <a href="#about">
-                Why Us
-            </a>
-        </li>
+  <section class="hero">
 
-        <li>
-            <a href="#contact">
-                Contact
-            </a>
-        </li>
+    <div class="container hero-grid">
 
-    </ul>
+      <div class="hero-content reveal">
 
-
-    <a href="#contact"
-       class="nav-button">
-
-        Let's Talk
-
-    </a>
-
-</nav>
-
-
-
-<!-- ==========================================
-     HERO
-=========================================== -->
-
-<header class="hero">
-
-    <div class="hero-content">
-
-
-        <div class="badge">
-
-            <span class="badge-dot"></span>
-
-            NEXT-GENERATION AI AUTOMATION
-
+        <div class="hero-badge">
+          <span class="dot"></span>
+          NEXT-GENERATION AI AUTOMATION
         </div>
 
-
         <h1>
-
-            Build smarter.
-            <br>
-
-            <span class="gradient-text">
-                Automate everything.
-            </span>
-
+          Build smarter.<br>
+          <span class="gradient-text">Automate everything.</span>
         </h1>
 
-
         <p>
-
-            We design intelligent AI agents that
-            understand your business, make decisions,
-            and execute tasks autonomously —
-            helping your team move faster and work smarter.
-
+          We design and deploy intelligent AI agents that automate workflows,
+          communicate with customers, analyze data and help businesses operate
+          faster with less manual effort.
         </p>
-
 
         <div class="hero-buttons">
 
-            <a href="#contact"
-               class="primary-btn">
+          <a href="#contact" class="btn btn-primary">
+            Build Your AI Agent →
+          </a>
 
-                Build Your AI Agent →
-
-            </a>
-
-
-            <a href="#services"
-               class="secondary-btn">
-
-                Explore Services
-
-            </a>
+          <a href="#services" class="btn btn-secondary">
+            Explore Services
+          </a>
 
         </div>
 
+      </div>
 
-        <!-- AI ORB -->
+      <div class="orb-wrapper reveal">
 
-        <div class="ai-visual">
+        <div class="ring"></div>
+        <div class="ring-2"></div>
+        <div class="orb"></div>
 
-            <div class="orbit one"></div>
-
-            <div class="orbit two"></div>
-
-            <div class="orbit three"></div>
-
-            <div class="orb"></div>
-
-        </div>
-
+      </div>
 
     </div>
 
-</header>
+  </section>
 
+  <!-- SERVICES -->
 
+  <section class="services" id="services">
 
-<!-- ==========================================
-     SERVICES
-=========================================== -->
+    <div class="container">
 
-<section id="services">
+      <div class="section-tag">
+        OUR SERVICES
+      </div>
 
-    <div class="services">
+      <h2 class="section-title reveal">
+        AI systems built to work for you.
+      </h2>
 
+      <p class="section-text reveal">
+        From autonomous AI agents to custom automation workflows, we help
+        businesses integrate practical artificial intelligence into everyday
+        operations.
+      </p>
 
-        <div class="section-header reveal">
+      <div class="services-grid">
 
-            <div class="section-label">
-                What We Build
-            </div>
-
-            <h2>
-                AI systems that
-                <span class="gradient-text">
-                    actually work.
-                </span>
-            </h2>
-
-            <p>
-
-                From autonomous AI agents to intelligent
-                business automation, we build systems that
-                reduce repetitive work and create scalable
-                digital operations.
-
-            </p>
-
+        <div class="card reveal">
+          <div class="icon-box">🤖</div>
+          <h3>Agentic AI</h3>
+          <p>
+            Autonomous AI agents capable of reasoning, planning and executing
+            complex tasks with minimal human intervention.
+          </p>
         </div>
 
-
-        <div class="service-grid">
-
-
-            <!-- SERVICE 1 -->
-
-            <div class="service-card reveal">
-
-                <div class="icon">
-                    ◈
-                </div>
-
-                <h3>
-                    Agentic AI
-                </h3>
-
-                <p>
-
-                    Autonomous AI agents that can reason,
-                    plan, use tools, access information,
-                    and execute multi-step tasks with
-                    minimal human intervention.
-
-                </p>
-
-            </div>
-
-
-            <!-- SERVICE 2 -->
-
-            <div class="service-card reveal">
-
-                <div class="icon">
-                    ⚡
-                </div>
-
-                <h3>
-                    AI Automation
-                </h3>
-
-                <p>
-
-                    Automate repetitive workflows across
-                    your business using intelligent AI-powered
-                    systems and integrations.
-
-                </p>
-
-            </div>
-
-
-            <!-- SERVICE 3 -->
-
-            <div class="service-card reveal">
-
-                <div class="icon">
-                    ◎
-                </div>
-
-                <h3>
-                    AI Chatbots
-                </h3>
-
-                <p>
-
-                    Intelligent conversational assistants
-                    designed for customer support, sales,
-                    lead generation and internal operations.
-
-                </p>
-
-            </div>
-
-
-            <!-- SERVICE 4 -->
-
-            <div class="service-card reveal">
-
-                <div class="icon">
-                    ⌁
-                </div>
-
-                <h3>
-                    AI Integrations
-                </h3>
-
-                <p>
-
-                    Connect AI systems with your existing
-                    CRM, databases, APIs, websites and
-                    business applications.
-
-                </p>
-
-            </div>
-
-
-            <!-- SERVICE 5 -->
-
-            <div class="service-card reveal">
-
-                <div class="icon">
-                    ◉
-                </div>
-
-                <h3>
-                    Custom AI Solutions
-                </h3>
-
-                <p>
-
-                    Purpose-built AI systems designed
-                    around your specific business problems,
-                    workflows and objectives.
-
-                </p>
-
-            </div>
-
-
-            <!-- SERVICE 6 -->
-
-            <div class="service-card reveal">
-
-                <div class="icon">
-                    ↗
-                </div>
-
-                <h3>
-                    AI Strategy
-                </h3>
-
-                <p>
-
-                    Identify where AI can create the
-                    greatest business impact and develop
-                    a practical roadmap for implementation.
-
-                </p>
-
-            </div>
-
-
+        <div class="card reveal">
+          <div class="icon-box">⚡</div>
+          <h3>AI Automation</h3>
+          <p>
+            Automate repetitive business processes and connect workflows across
+            your existing tools and platforms.
+          </p>
         </div>
+
+        <div class="card reveal">
+          <div class="icon-box">💬</div>
+          <h3>AI Chatbots</h3>
+          <p>
+            Intelligent customer support and sales assistants that communicate
+            naturally and operate around the clock.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon-box">🔗</div>
+          <h3>AI Integrations</h3>
+          <p>
+            Integrate AI with CRMs, databases, websites, APIs and business
+            applications.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon-box">🧠</div>
+          <h3>Custom AI Solutions</h3>
+          <p>
+            Purpose-built AI systems designed specifically around your
+            organisation's workflow and goals.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon-box">📈</div>
+          <h3>AI Strategy</h3>
+          <p>
+            Identify opportunities where AI can reduce costs, increase
+            efficiency and create measurable business value.
+          </p>
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
+  <!-- PROCESS -->
 
+  <section id="process">
 
-<!-- ==========================================
-     PROCESS
-=========================================== -->
+    <div class="container">
 
-<section id="process">
+      <div class="section-tag">
+        HOW IT WORKS
+      </div>
 
-    <div class="process">
+      <h2 class="section-title reveal">
+        From idea to intelligent automation.
+      </h2>
 
+      <p class="section-text reveal">
+        We follow a structured development process that keeps every AI solution
+        focused on solving real business problems.
+      </p>
 
-        <div class="section-header reveal">
+      <div class="process-grid">
 
-            <div class="section-label">
-                Our Process
-            </div>
-
-            <h2>
-                From idea to
-                <span class="gradient-text">
-                    intelligent system.
-                </span>
-            </h2>
-
+        <div class="process-item reveal">
+          <div class="process-number">01</div>
+          <span>🔍</span>
+          <h3>Discover</h3>
+          <p>
+            We understand your workflow, challenges and areas where automation
+            can create the greatest impact.
+          </p>
         </div>
 
-
-        <div class="process-grid">
-
-
-            <div class="process-card reveal">
-
-                <div class="process-number">
-                    01 / DISCOVER
-                </div>
-
-                <h3>
-                    Understand
-                </h3>
-
-                <p>
-
-                    We understand your business,
-                    workflows and the problems
-                    you want AI to solve.
-
-                </p>
-
-            </div>
-
-
-            <div class="process-card reveal">
-
-                <div class="process-number">
-                    02 / DESIGN
-                </div>
-
-                <h3>
-                    Architect
-                </h3>
-
-                <p>
-
-                    We design the AI architecture,
-                    agent behaviour, tools and
-                    integrations required.
-
-                </p>
-
-            </div>
-
-
-            <div class="process-card reveal">
-
-                <div class="process-number">
-                    03 / BUILD
-                </div>
-
-                <h3>
-                    Develop
-                </h3>
-
-                <p>
-
-                    Our team builds, tests and
-                    integrates your AI system
-                    with your existing workflow.
-
-                </p>
-
-            </div>
-
-
-            <div class="process-card reveal">
-
-                <div class="process-number">
-                    04 / SCALE
-                </div>
-
-                <h3>
-                    Optimize
-                </h3>
-
-                <p>
-
-                    We continuously improve your
-                    AI system as your business
-                    grows and requirements evolve.
-
-                </p>
-
-            </div>
-
-
+        <div class="process-item reveal">
+          <div class="process-number">02</div>
+          <span>✏️</span>
+          <h3>Design</h3>
+          <p>
+            We create the architecture, agent behaviour and automation strategy
+            for your solution.
+          </p>
         </div>
+
+        <div class="process-item reveal">
+          <div class="process-number">03</div>
+          <span>⚙️</span>
+          <h3>Build</h3>
+          <p>
+            Our team develops, integrates and tests the AI system within your
+            business environment.
+          </p>
+        </div>
+
+        <div class="process-item reveal">
+          <div class="process-number">04</div>
+          <span>🚀</span>
+          <h3>Scale</h3>
+          <p>
+            We monitor, improve and expand the automation as your business
+            requirements grow.
+          </p>
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
+  <!-- STATS -->
 
+  <section class="stats">
 
-<!-- ==========================================
-     STATS
-=========================================== -->
+    <div class="container">
 
-<section>
-
-    <div class="stats reveal">
-
+      <div class="stats-box reveal">
 
         <div class="stat">
-
-            <h3>
-                24/7
-            </h3>
-
-            <p>
-                Autonomous Operations
-            </p>
-
+          <h3>24/7</h3>
+          <p>AI Operations</p>
         </div>
-
 
         <div class="stat">
-
-            <h3>
-                10×
-            </h3>
-
-            <p>
-                Workflow Potential
-            </p>
-
+          <h3>10×</h3>
+          <p>Faster Workflows</p>
         </div>
-
 
         <div class="stat">
-
-            <h3>
-                AI
-            </h3>
-
-            <p>
-                Powered Intelligence
-            </p>
-
+          <h3>AI</h3>
+          <p>Powered Automation</p>
         </div>
-
 
         <div class="stat">
-
-            <h3>
-                ∞
-            </h3>
-
-            <p>
-                Possibilities
-            </p>
-
+          <h3>∞</h3>
+          <p>Scalability</p>
         </div>
 
+      </div>
 
     </div>
 
-</section>
+  </section>
 
+  <!-- WHY US -->
 
+  <section id="why">
 
-<!-- ==========================================
-     WHY US
-=========================================== -->
+    <div class="container">
 
-<section id="about">
+      <div class="section-tag">
+        WHY WORK WITH US
+      </div>
 
-    <div class="services">
+      <h2 class="section-title reveal">
+        AI that solves real problems.
+      </h2>
 
+      <div class="why-grid">
 
-        <div class="section-header reveal">
-
-            <div class="section-label">
-                Why Choose Us
-            </div>
-
-            <h2>
-                AI should be a
-                <span class="gradient-text">
-                    competitive advantage.
-                </span>
-            </h2>
-
-            <p>
-
-                We don't build AI just because it's
-                trending. We build intelligent systems
-                around real business outcomes.
-
-            </p>
-
+        <div class="card reveal">
+          <div class="icon-box">🎯</div>
+          <h3>Business Focused</h3>
+          <p>
+            We build AI around your business objectives instead of adding
+            technology simply for the sake of it.
+          </p>
         </div>
 
-
-        <div class="service-grid">
-
-
-            <div class="service-card reveal">
-
-                <div class="icon">
-                    ✓
-                </div>
-
-                <h3>
-                    Business First
-                </h3>
-
-                <p>
-
-                    Every AI solution starts with a
-                    business problem — not a technology.
-
-                </p>
-
-            </div>
-
-
-            <div class="service-card reveal">
-
-                <div class="icon">
-                    ◇
-                </div>
-
-                <h3>
-                    Built For You
-                </h3>
-
-                <p>
-
-                    No generic solutions. We create
-                    AI systems around your unique
-                    processes and requirements.
-
-                </p>
-
-            </div>
-
-
-            <div class="service-card reveal">
-
-                <div class="icon">
-                    ↻
-                </div>
-
-                <h3>
-                    Future Ready
-                </h3>
-
-                <p>
-
-                    Our systems are designed to evolve
-                    as AI technology and your business
-                    continue to grow.
-
-                </p>
-
-            </div>
-
-
+        <div class="card reveal">
+          <div class="icon-box">🛠️</div>
+          <h3>Custom Built</h3>
+          <p>
+            Every workflow and AI agent is designed around the unique needs of
+            your organisation.
+          </p>
         </div>
+
+        <div class="card reveal">
+          <div class="icon-box">📊</div>
+          <h3>Built to Scale</h3>
+          <p>
+            Our systems are designed so they can evolve as your operations,
+            data and customer base grow.
+          </p>
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
+  <!-- CTA -->
 
+  <section class="cta">
 
-<!-- ==========================================
-     CTA
-=========================================== -->
+    <div class="container">
 
-<section>
+      <div class="cta-box reveal">
 
-    <div class="cta reveal">
-
-        <div class="section-label">
-            START BUILDING
+        <div class="section-tag">
+          READY TO AUTOMATE?
         </div>
 
         <h2>
-
-            Your next
-            <span class="gradient-text">
-                AI employee
-            </span>
-            is waiting.
-
+          Your next AI employee is waiting.
         </h2>
 
         <p>
-
-            Tell us what your business does,
-            what takes too much time, and what
-            you want to automate.
-
+          Tell us what is slowing your business down and we'll explore how an
+          intelligent AI system could automate it.
         </p>
 
-
-        <a href="#contact"
-           class="primary-btn">
-
-            Start a Conversation →
-
+        <a href="#contact" class="btn btn-primary">
+          Start a Conversation →
         </a>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
+  <!-- CONTACT -->
 
+  <section id="contact">
 
-<!-- ==========================================
-     CONTACT
-=========================================== -->
+    <div class="container contact-grid">
 
-<section id="contact">
+      <div class="contact-details reveal">
 
-    <div class="contact">
+        <div class="section-tag">
+          CONTACT
+        </div>
 
+        <h2>
+          Let's build something intelligent.
+        </h2>
 
-        <div class="contact-info reveal">
+        <p>
+          Have an idea for an AI agent, chatbot or automation workflow? Tell us
+          what you need and we'll help turn it into a working solution.
+        </p>
 
-            <div class="section-label">
-                CONTACT
-            </div>
+        <div class="contact-info">
 
-            <h2>
-                Let's build
-                something intelligent.
-            </h2>
+          <div>
+            📧 hello@nexai.com
+          </div>
 
-            <p>
+          <div>
+            🌍 Available worldwide
+          </div>
 
-                Have an idea for an AI agent,
-                automation system or intelligent
-                product?
-
-                Let's talk.
-
-            </p>
-
-
-            <div class="contact-detail">
-                ✉ hello@yourcompany.com
-            </div>
-
-            <div class="contact-detail">
-                ◉ India
-            </div>
+          <div>
+            ⚡ AI automation for modern businesses
+          </div>
 
         </div>
 
+      </div>
 
-        <form class="contact-form reveal"
-              id="contactForm">
+      <form class="contact-form reveal" id="contactForm">
 
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="Your name"
+            required
+          />
+        </div>
 
-            <input
-                type="text"
-                placeholder="Your Name"
-                required
-            >
+        <div class="form-group">
+          <input
+            type="email"
+            placeholder="Email address"
+            required
+          />
+        </div>
 
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="Company name"
+          />
+        </div>
 
-            <input
-                type="email"
-                placeholder="Email Address"
-                required
-            >
+        <div class="form-group">
+          <textarea
+            placeholder="Tell us about the AI solution you need..."
+            required
+          ></textarea>
+        </div>
 
+        <button type="submit" class="submit-btn">
+          Send Message →
+        </button>
 
-            <input
-                type="text"
-                placeholder="Company"
-            >
-
-
-            <textarea
-                placeholder="Tell us about your project..."
-                required
-            ></textarea>
-
-
-            <button
-                type="submit"
-                class="primary-btn">
-
-                Send Message →
-
-            </button>
-
-
-        </form>
+      </form>
 
     </div>
 
-</section>
+  </section>
 
+  <!-- FOOTER -->
 
+  <footer>
 
-<!-- ==========================================
-     FOOTER
-=========================================== -->
+    <div class="footer-inner">
 
-<footer>
+      <div class="logo">
+        NEX<span>AI</span>
+      </div>
 
-    <div class="footer-logo">
-        NEXAI
-    </div>
-
-    <div>
+      <div>
         © 2026 NEXAI. All rights reserved.
+      </div>
+
     </div>
 
-    <div>
-        Intelligent. Autonomous. Scalable.
-    </div>
+  </footer>
 
-</footer>
+  <script>
 
+    // MOBILE NAVBAR
 
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("show");
+    }
 
-<!-- ==========================================
-     JAVASCRIPT
-=========================================== -->
+    // CLOSE MENU AFTER CLICKING A LINK
 
-<script>
+    document.querySelectorAll(".nav-links a").forEach(link => {
 
+      link.addEventListener("click", () => {
 
-    /* ============================
-       SCROLL REVEAL
-    ============================ */
+        document
+          .getElementById("navLinks")
+          .classList.remove("show");
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
-
-
-    const observer =
-        new IntersectionObserver(
-
-            (entries) => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("show");
-
-                    }
-
-                });
-
-            },
-
-            {
-                threshold: 0.15
-            }
-
-        );
-
-
-    revealElements.forEach(element => {
-
-        observer.observe(element);
+      });
 
     });
 
 
+    // SCROLL REVEAL
 
-    /* ============================
-       CONTACT FORM
-    ============================ */
+    const revealElements =
+      document.querySelectorAll(".reveal");
 
-    const form =
-        document.getElementById("contactForm");
+    function revealOnScroll() {
+
+      const windowHeight =
+        window.innerHeight;
+
+      revealElements.forEach(element => {
+
+        const elementTop =
+          element.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 80) {
+          element.classList.add("active");
+        }
+
+      });
+
+    }
+
+    window.addEventListener(
+      "scroll",
+      revealOnScroll
+    );
+
+    window.addEventListener(
+      "load",
+      revealOnScroll
+    );
 
 
-    form.addEventListener("submit", function(event) {
+    // CONTACT FORM
+
+    const contactForm =
+      document.getElementById("contactForm");
+
+    contactForm.addEventListener(
+      "submit",
+      function(event) {
 
         event.preventDefault();
 
-
         alert(
-            "Thank you! We'll get back to you soon."
+          "Thanks! Your message has been received."
         );
 
+        contactForm.reset();
 
-        form.reset();
+      }
+    );
 
-    });
-
-
-</script>
-
+  </script>
 
 </body>
-
 </html>
