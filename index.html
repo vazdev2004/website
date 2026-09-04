@@ -1,58 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NEXAI — Agentic AI Solutions</title>
 
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
 <style>
 
 /* =====================================================
-   GLOBAL
+   VARIABLES
+===================================================== */
+
+:root {
+
+    --bg: #faf8f4;
+    --bg2: #f3ede5;
+
+    --brown: #9a6a35;
+    --brown-dark: #69431f;
+
+    --gold: #c19a69;
+    --gold-light: #dfc39d;
+
+    --text: #191613;
+    --muted: #6b6259;
+
+    --border: #ded1c0;
+
+    --white: #ffffff;
+}
+
+
+/* =====================================================
+   RESET
 ===================================================== */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
-:root {
-    --bg: #faf8f4;
-    --bg-soft: #f4efe8;
-    --white: #ffffff;
-    --brown: #9a6a35;
-    --brown-dark: #6f4823;
-    --gold: #b98a52;
-    --gold-light: #d9b47e;
-    --text: #171513;
-    --text-soft: #62584d;
-    --border: #dfd2c1;
-    --cream: #efe3d2;
-}
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background: var(--bg);
+
     color: var(--text);
-    line-height: 1.6;
+
     overflow-x: hidden;
-}
-
-/* subtle grain */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.035;
-    z-index: 9999;
-
-    background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
 a {
@@ -60,13 +71,13 @@ a {
     color: inherit;
 }
 
+section {
+    padding: 110px 7%;
+}
+
 .container {
     max-width: 1200px;
     margin: auto;
-}
-
-section {
-    padding: 100px 7%;
 }
 
 
@@ -75,32 +86,47 @@ section {
 ===================================================== */
 
 .navbar {
+
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
+
     z-index: 1000;
 
     padding: 18px 7%;
 
-    background: rgba(250,248,244,0.85);
-    backdrop-filter: blur(18px);
+    background:
+        rgba(250,248,244,.85);
 
-    border-bottom: 1px solid rgba(154,106,53,0.12);
+    backdrop-filter:
+        blur(18px);
+
+    border-bottom:
+        1px solid rgba(154,106,53,.12);
 }
 
 .nav-inner {
+
     max-width: 1200px;
+
     margin: auto;
 
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
+
+    justify-content: space-between;
 }
 
 .logo {
-    font-size: 24px;
+
+    font-size: 25px;
+
     font-weight: 900;
+
     letter-spacing: -1px;
 }
 
@@ -109,14 +135,20 @@ section {
 }
 
 .nav-links {
+
     display: flex;
+
     align-items: center;
-    gap: 32px;
+
+    gap: 30px;
 }
 
 .nav-links a {
-    color: #51483e;
+
     font-size: 14px;
+
+    color: #554d45;
+
     transition: .3s;
 }
 
@@ -125,21 +157,24 @@ section {
 }
 
 .nav-button {
+
     padding: 11px 20px;
 
     background: var(--brown);
+
     color: white !important;
 
     border-radius: 8px;
 
     font-weight: 700;
 
-    box-shadow: 0 8px 20px rgba(154,106,53,.18);
+    box-shadow:
+        0 10px 25px rgba(154,106,53,.2);
 }
 
 .menu {
     display: none;
-    font-size: 26px;
+    font-size: 25px;
     cursor: pointer;
 }
 
@@ -149,27 +184,30 @@ section {
 ===================================================== */
 
 .hero {
+
     min-height: 100vh;
 
-    padding-top: 130px;
+    padding-top: 140px;
 
     display: flex;
+
     align-items: center;
 
-    position: relative;
-
     overflow: hidden;
+
+    position: relative;
 }
 
-.hero::after {
+.hero::before {
+
     content: "";
 
     position: absolute;
 
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
 
-    right: -250px;
+    right: -300px;
     top: 50px;
 
     border-radius: 50%;
@@ -177,24 +215,30 @@ section {
     background:
         radial-gradient(
             circle,
-            rgba(201,164,113,.15),
-            transparent 65%
+            rgba(190,150,100,.17),
+            transparent 68%
         );
-
-    pointer-events: none;
 }
 
 .hero-grid {
+
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
-    gap: 40px;
+    gap: 50px;
 
     align-items: center;
 }
 
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
 .badge {
+
     display: inline-flex;
 
     align-items: center;
@@ -203,22 +247,27 @@ section {
 
     padding: 8px 15px;
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 30px;
 
+    background:
+        rgba(255,255,255,.5);
+
     color: var(--brown-dark);
 
-    font-size: 12px;
+    font-size: 11px;
 
-    font-weight: 600;
+    font-weight: 700;
+
+    letter-spacing: .5px;
 
     margin-bottom: 25px;
-
-    background: rgba(255,255,255,.5);
 }
 
 .badge-dot {
+
     width: 7px;
     height: 7px;
 
@@ -227,11 +276,13 @@ section {
     background: var(--brown);
 
     box-shadow:
-        0 0 10px rgba(154,106,53,.5);
+        0 0 12px rgba(154,106,53,.6);
 }
 
 .hero h1 {
-    font-size: clamp(55px, 7vw, 88px);
+
+    font-size:
+        clamp(55px,7vw,88px);
 
     line-height: .94;
 
@@ -241,6 +292,7 @@ section {
 }
 
 .hero h1 span {
+
     display: block;
 
     font-family: Georgia, serif;
@@ -253,22 +305,27 @@ section {
 }
 
 .hero p {
-    max-width: 580px;
 
-    color: var(--text-soft);
+    max-width: 570px;
 
     font-size: 17px;
 
-    margin-bottom: 35px;
+    color: var(--muted);
+
+    margin-bottom: 32px;
 }
 
 .buttons {
+
     display: flex;
-    gap: 13px;
+
+    gap: 12px;
+
     flex-wrap: wrap;
 }
 
 .btn {
+
     display: inline-block;
 
     padding: 14px 23px;
@@ -283,6 +340,7 @@ section {
 }
 
 .btn-primary {
+
     background: var(--brown);
 
     color: white;
@@ -292,31 +350,35 @@ section {
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
 
     background: var(--brown-dark);
+
+    transform:
+        translateY(-3px);
 }
 
 .btn-secondary {
-    border: 1px solid var(--border);
+
+    background: white;
+
+    border:
+        1px solid var(--border);
 
     color: var(--brown-dark);
-
-    background: rgba(255,255,255,.5);
 }
 
 .btn-secondary:hover {
-    background: white;
+    transform: translateY(-3px);
 }
 
 
 /* =====================================================
-   AI ROBOT SCENE
+   AI SCENE
 ===================================================== */
 
 .ai-scene {
 
-    height: 530px;
+    height: 550px;
 
     position: relative;
 
@@ -328,7 +390,7 @@ section {
 }
 
 
-/* background circles */
+/* AI GLOW */
 
 .scene-glow {
 
@@ -342,36 +404,44 @@ section {
     background:
         radial-gradient(
             circle,
-            rgba(207,169,117,.20),
-            rgba(207,169,117,.05) 45%,
+            rgba(198,158,108,.22),
+            rgba(198,158,108,.06) 45%,
             transparent 70%
         );
+
+    filter: blur(3px);
 }
 
+
+/* ORBITS */
+
 .orbit {
+
     position: absolute;
 
-    width: 430px;
-    height: 170px;
+    width: 450px;
+    height: 175px;
 
-    border: 1px solid rgba(185,138,82,.23);
+    border:
+        1px solid rgba(154,106,53,.22);
 
     border-radius: 50%;
 
-    transform: rotate(-20deg);
-
-    animation: orbitRotate 10s linear infinite;
+    transform:
+        rotate(-20deg);
 }
 
 .orbit-two {
-    width: 350px;
-    height: 350px;
 
-    border: 1px solid rgba(185,138,82,.13);
+    position: absolute;
+
+    width: 360px;
+    height: 360px;
+
+    border:
+        1px solid rgba(154,106,53,.12);
 
     border-radius: 50%;
-
-    animation: spin 18s linear infinite;
 }
 
 
@@ -386,16 +456,15 @@ section {
     position: relative;
 
     z-index: 10;
-
-    animation: robotFloat 4s ease-in-out infinite;
 }
 
 
 /* antenna */
 
 .antenna {
+
     width: 4px;
-    height: 25px;
+    height: 27px;
 
     background: var(--brown);
 
@@ -405,6 +474,7 @@ section {
 }
 
 .antenna::before {
+
     content: "";
 
     position: absolute;
@@ -412,21 +482,23 @@ section {
     width: 11px;
     height: 11px;
 
+    top: -7px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
     border-radius: 50%;
 
-    background: var(--gold);
-
-    left: 50%;
-    top: -7px;
-
-    transform: translateX(-50%);
+    background:
+        var(--gold);
 
     box-shadow:
-        0 0 12px rgba(185,138,82,.5);
+        0 0 15px rgba(193,154,105,.8);
 }
 
 
-/* robot head */
+/* HEAD */
 
 .robot-head {
 
@@ -442,21 +514,22 @@ section {
     background:
         linear-gradient(
             145deg,
-            #fff,
-            #e9dfd1
+            #ffffff,
+            #e4d9ca
         );
 
-    border: 2px solid #cbb79d;
+    border:
+        2px solid #c7b397;
 
     box-shadow:
-        0 20px 40px rgba(80,55,30,.16),
-        inset 0 0 20px rgba(255,255,255,.8);
+        0 25px 50px rgba(70,45,25,.16);
 }
 
 
-/* ears */
+/* EARS */
 
 .ear {
+
     position: absolute;
 
     width: 20px;
@@ -464,11 +537,12 @@ section {
 
     top: 31px;
 
-    background: #d5c0a5;
-
-    border: 2px solid #b89a77;
-
     border-radius: 10px;
+
+    background: #d4c0a7;
+
+    border:
+        2px solid #b99d7d;
 }
 
 .ear.left {
@@ -480,38 +554,37 @@ section {
 }
 
 
-/* robot face */
+/* FACE */
 
 .robot-face {
 
     position: absolute;
 
-    left: 15px;
-    right: 15px;
+    inset: 17px 15px;
 
-    top: 17px;
-    bottom: 17px;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    border-radius: 25px;
 
     background:
         linear-gradient(
             145deg,
-            #302921,
-            #171310
+            #332a22,
+            #17130f
         );
 
-    border-radius: 25px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 25px;
-
     box-shadow:
-        inset 0 0 15px rgba(0,0,0,.6);
+        inset 0 0 20px rgba(0,0,0,.7);
 }
+
+
+/* EYES */
 
 .eye {
 
@@ -520,43 +593,45 @@ section {
 
     border-radius: 50%;
 
-    background: #e4bd86;
+    background:
+        #e4bd86;
 
     box-shadow:
-        0 0 12px rgba(228,189,134,.8);
-
-    animation: blink 4s infinite;
+        0 0 14px rgba(228,189,134,.8);
 }
 
 
-/* robot body */
+/* BODY */
 
 .robot-body {
 
     width: 135px;
     height: 125px;
 
-    margin: -4px auto 0;
+    margin:
+        -4px auto 0;
 
-    border-radius: 38px 38px 25px 25px;
+    position: relative;
+
+    border-radius:
+        38px 38px 25px 25px;
 
     background:
         linear-gradient(
             145deg,
-            #fff,
+            #ffffff,
             #ddd0be
         );
 
-    border: 2px solid #cbb79d;
-
-    position: relative;
+    border:
+        2px solid #c7b397;
 
     box-shadow:
-        0 20px 35px rgba(80,55,30,.13);
+        0 25px 45px rgba(70,45,25,.13);
 }
 
 
-/* chest display */
+/* CHEST */
 
 .robot-chest {
 
@@ -568,13 +643,10 @@ section {
     left: 50%;
     top: 30px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     border-radius: 12px;
-
-    background: #302820;
-
-    border: 1px solid #b89467;
 
     display: flex;
 
@@ -582,22 +654,31 @@ section {
 
     align-items: center;
 
-    color: var(--gold-light);
+    background:
+        #30271f;
+
+    border:
+        1px solid #b99465;
+
+    color:
+        var(--gold-light);
 
     font-size: 18px;
 }
 
 
-/* arms */
+/* ARMS */
 
 .arm {
+
+    position: absolute;
 
     width: 31px;
     height: 90px;
 
-    position: absolute;
-
     top: 8px;
+
+    border-radius: 20px;
 
     background:
         linear-gradient(
@@ -606,35 +687,20 @@ section {
             #cdbca5
         );
 
-    border: 2px solid #c2ac90;
-
-    border-radius: 20px;
+    border:
+        2px solid #bda689;
 }
 
 .arm.left {
-
     left: -32px;
-
-    transform:
-        rotate(17deg);
-
-    transform-origin: top;
 }
 
 .arm.right {
-
     right: -32px;
-
-    transform:
-        rotate(-38deg);
-
-    transform-origin: top;
-
-    animation: robotHand 2.5s ease-in-out infinite;
 }
 
 
-/* hand */
+/* HAND */
 
 .hand {
 
@@ -644,16 +710,17 @@ section {
     position: absolute;
 
     bottom: -17px;
-
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     border-radius: 50%;
 
     background: #d7c6ae;
 
-    border: 2px solid #b79b79;
+    border:
+        2px solid #b79b79;
 }
 
 
@@ -669,18 +736,20 @@ section {
 
     padding: 14px 16px;
 
-    background: rgba(255,255,255,.9);
+    background:
+        rgba(255,255,255,.95);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 11px;
 
     box-shadow:
-        0 18px 40px rgba(80,55,30,.10);
+        0 20px 45px rgba(80,55,30,.10);
 
     font-size: 11px;
 
-    color: var(--text-soft);
+    color: var(--muted);
 
     z-index: 20;
 }
@@ -702,69 +771,55 @@ section {
 
     color: var(--brown);
 
-    font-weight: bold;
+    font-size: 15px;
 }
 
 .task-one {
 
     left: 0;
-
     top: 70px;
-
-    animation:
-        taskFloat 4s ease-in-out infinite;
 }
 
 .task-two {
 
     left: 15px;
-
     bottom: 70px;
-
-    animation:
-        taskFloat 5s ease-in-out infinite reverse;
 }
 
 .task-three {
 
     right: -10px;
-
-    bottom: 80px;
-
-    animation:
-        taskFloat 4.5s ease-in-out infinite;
+    bottom: 75px;
 }
 
 
 /* =====================================================
-   BUSINESS DASHBOARD
+   DASHBOARD
 ===================================================== */
 
 .dashboard {
 
     position: absolute;
 
-    right: -10px;
+    right: -5px;
+    top: 40px;
 
-    top: 45px;
-
-    width: 205px;
+    width: 210px;
 
     padding: 18px;
 
-    background: rgba(255,255,255,.94);
+    background:
+        rgba(255,255,255,.96);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 12px;
 
     box-shadow:
-        0 20px 50px rgba(80,55,30,.12);
+        0 25px 55px rgba(80,55,30,.12);
 
     z-index: 15;
-
-    animation:
-        dashboardFloat 5s ease-in-out infinite;
 }
 
 .dashboard-title {
@@ -775,21 +830,21 @@ section {
 
     font-size: 12px;
 
-    font-weight: bold;
+    font-weight: 700;
 
-    margin-bottom: 16px;
+    margin-bottom: 17px;
 }
 
 .live {
 
-    color: #8d693f;
+    color: var(--brown);
 
     font-size: 9px;
 }
 
 .chart {
 
-    height: 70px;
+    height: 75px;
 
     display: flex;
 
@@ -797,14 +852,17 @@ section {
 
     gap: 6px;
 
-    margin-bottom: 13px;
+    margin-bottom: 14px;
 }
 
 .bar {
 
     flex: 1;
 
-    border-radius: 3px 3px 0 0;
+    height: 20%;
+
+    border-radius:
+        3px 3px 0 0;
 
     background:
         linear-gradient(
@@ -813,37 +871,8 @@ section {
             var(--gold-light)
         );
 
-    animation:
-        chartGrow 2s ease-in-out infinite alternate;
-}
-
-.bar:nth-child(1) {
-    height: 30%;
-}
-
-.bar:nth-child(2) {
-    height: 48%;
-    animation-delay: .2s;
-}
-
-.bar:nth-child(3) {
-    height: 40%;
-    animation-delay: .4s;
-}
-
-.bar:nth-child(4) {
-    height: 65%;
-    animation-delay: .6s;
-}
-
-.bar:nth-child(5) {
-    height: 85%;
-    animation-delay: .8s;
-}
-
-.bar:nth-child(6) {
-    height: 100%;
-    animation-delay: 1s;
+    transform-origin:
+        bottom;
 }
 
 .dashboard-bottom {
@@ -854,7 +883,7 @@ section {
 
     font-size: 10px;
 
-    color: var(--text-soft);
+    color: var(--muted);
 }
 
 .dashboard-bottom strong {
@@ -866,7 +895,47 @@ section {
 
 
 /* =====================================================
-   DATA CONNECTIONS
+   DATA PARTICLES
+===================================================== */
+
+.data-dot {
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--brown);
+
+    box-shadow:
+        0 0 14px rgba(154,106,53,.8);
+
+    z-index: 30;
+
+    opacity: 0;
+}
+
+.data-one {
+    left: 160px;
+    top: 190px;
+}
+
+.data-two {
+    right: 160px;
+    top: 220px;
+}
+
+.data-three {
+    left: 250px;
+    top: 320px;
+}
+
+
+/* =====================================================
+   CONNECTION LINES
 ===================================================== */
 
 .connection {
@@ -879,68 +948,31 @@ section {
         linear-gradient(
             90deg,
             transparent,
-            rgba(154,106,53,.45),
+            rgba(154,106,53,.4),
             transparent
         );
-
-    z-index: 3;
 }
 
 .connection-one {
 
-    width: 150px;
+    width: 160px;
 
-    left: 170px;
-
+    left: 130px;
     top: 190px;
 
-    transform: rotate(-12deg);
+    transform:
+        rotate(-12deg);
 }
 
 .connection-two {
 
-    width: 150px;
+    width: 160px;
 
-    right: 160px;
-
-    top: 215px;
-
-    transform: rotate(8deg);
-}
-
-.data-dot {
-
-    width: 7px;
-    height: 7px;
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    background: var(--brown);
-
-    box-shadow:
-        0 0 12px rgba(154,106,53,.6);
-
-    z-index: 8;
-}
-
-.data-one {
-
-    left: 270px;
-    top: 178px;
-
-    animation:
-        dataMove 3s linear infinite;
-}
-
-.data-two {
-
-    right: 260px;
+    right: 130px;
     top: 220px;
 
-    animation:
-        dataMoveReverse 3s linear infinite;
+    transform:
+        rotate(8deg);
 }
 
 
@@ -950,11 +982,14 @@ section {
 
 .services {
 
-    background: #f4efe8;
+    background:
+        var(--bg2);
 
-    border-top: 1px solid #e5dbce;
+    border-top:
+        1px solid #e5dbce;
 
-    border-bottom: 1px solid #e5dbce;
+    border-bottom:
+        1px solid #e5dbce;
 }
 
 .section-label {
@@ -970,7 +1005,8 @@ section {
 
 .section-title {
 
-    font-size: clamp(36px,5vw,56px);
+    font-size:
+        clamp(38px,5vw,58px);
 
     line-height: 1.05;
 
@@ -981,7 +1017,7 @@ section {
 
 .section-title span {
 
-    font-family: Georgia,serif;
+    font-family: Georgia, serif;
 
     font-style: italic;
 
@@ -992,11 +1028,11 @@ section {
 
 .section-description {
 
-    color: var(--text-soft);
-
     max-width: 620px;
 
     font-size: 15px;
+
+    color: var(--muted);
 }
 
 .services-grid {
@@ -1006,20 +1042,22 @@ section {
     grid-template-columns:
         repeat(3,1fr);
 
-    gap: 14px;
+    gap: 15px;
 
     margin-top: 50px;
 }
 
 .service-card {
 
-    min-height: 185px;
+    min-height: 190px;
 
     padding: 27px;
 
-    background: rgba(255,255,255,.72);
+    background:
+        rgba(255,255,255,.75);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 12px;
 
@@ -1029,12 +1067,12 @@ section {
 .service-card:hover {
 
     transform:
-        translateY(-7px);
+        translateY(-8px);
 
     background: white;
 
     box-shadow:
-        0 20px 45px rgba(100,70,40,.09);
+        0 25px 50px rgba(70,45,25,.09);
 }
 
 .service-icon {
@@ -1044,18 +1082,19 @@ section {
 
     display: flex;
 
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    background: var(--cream);
+    margin-bottom: 18px;
 
     border-radius: 10px;
+
+    background:
+        #eee1d0;
 
     color: var(--brown);
 
     font-size: 20px;
-
-    margin-bottom: 18px;
 }
 
 .service-card h3 {
@@ -1069,7 +1108,7 @@ section {
 
     font-size: 13px;
 
-    color: var(--text-soft);
+    color: var(--muted);
 }
 
 
@@ -1084,16 +1123,9 @@ section {
     grid-template-columns:
         repeat(4,1fr);
 
-    gap: 35px;
+    gap: 30px;
 
     margin-top: 55px;
-}
-
-.process-card {
-
-    position: relative;
-
-    padding-top: 20px;
 }
 
 .process-number {
@@ -1101,18 +1133,21 @@ section {
     width: 43px;
     height: 43px;
 
-    border-radius: 50%;
-
     display: flex;
 
     justify-content: center;
     align-items: center;
 
-    border: 1px solid var(--border);
+    border-radius: 50%;
 
-    color: var(--brown);
+    border:
+        1px solid var(--border);
 
-    background: var(--bg-soft);
+    background:
+        var(--bg2);
+
+    color:
+        var(--brown);
 
     margin-bottom: 20px;
 }
@@ -1128,7 +1163,7 @@ section {
 
     font-size: 13px;
 
-    color: var(--text-soft);
+    color: var(--muted);
 }
 
 
@@ -1138,13 +1173,17 @@ section {
 
 .stats {
 
-    padding: 55px 7%;
+    padding:
+        60px 7%;
 
-    background: #efe5d8;
+    background:
+        #eee3d5;
 
-    border-top: 1px solid var(--border);
+    border-top:
+        1px solid var(--border);
 
-    border-bottom: 1px solid var(--border);
+    border-bottom:
+        1px solid var(--border);
 }
 
 .stats-grid {
@@ -1173,7 +1212,8 @@ section {
 
 .stat h3 {
 
-    font-family: Georgia,serif;
+    font-family:
+        Georgia,serif;
 
     font-size: 45px;
 
@@ -1184,7 +1224,7 @@ section {
 
     font-size: 12px;
 
-    color: var(--text-soft);
+    color: var(--muted);
 }
 
 
@@ -1194,7 +1234,7 @@ section {
 
 .cta {
 
-    padding-top: 75px;
+    padding-top: 80px;
 }
 
 .cta-box {
@@ -1203,7 +1243,7 @@ section {
 
     margin: auto;
 
-    padding: 55px;
+    padding: 60px;
 
     display: flex;
 
@@ -1213,7 +1253,8 @@ section {
 
     gap: 40px;
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 13px;
 
@@ -1224,37 +1265,14 @@ section {
             transparent 40%
         ),
         white;
-
-    overflow: hidden;
-
-    position: relative;
-}
-
-.cta-box::after {
-
-    content: "";
-
-    position: absolute;
-
-    right: -80px;
-
-    top: -80px;
-
-    width: 280px;
-    height: 280px;
-
-    border: 1px solid rgba(154,106,53,.13);
-
-    border-radius: 50%;
 }
 
 .cta-box h2 {
 
-    font-size: clamp(36px,5vw,54px);
+    font-size:
+        clamp(38px,5vw,55px);
 
     line-height: 1;
-
-    max-width: 600px;
 
     letter-spacing: -2px;
 }
@@ -1276,9 +1294,9 @@ section {
 
     max-width: 390px;
 
-    color: var(--text-soft);
-
     font-size: 14px;
+
+    color: var(--muted);
 
     margin-bottom: 20px;
 }
@@ -1289,8 +1307,7 @@ section {
 ===================================================== */
 
 .contact {
-
-    padding-top: 40px;
+    padding-top: 50px;
 }
 
 .contact-grid {
@@ -1306,13 +1323,14 @@ section {
 
     gap: 50px;
 
-    padding: 45px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 13px;
+    padding: 50px;
 
     background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 13px;
 }
 
 .contact h2 {
@@ -1326,9 +1344,9 @@ section {
 
     margin-top: 18px;
 
-    color: var(--text-soft);
-
     font-size: 14px;
+
+    color: var(--muted);
 }
 
 .contact-info {
@@ -1339,7 +1357,7 @@ section {
 
     font-size: 13px;
 
-    line-height: 2.4;
+    line-height: 2.5;
 }
 
 form {
@@ -1356,13 +1374,13 @@ textarea {
 
     padding: 14px;
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 7px;
 
-    background: #fcfaf7;
-
-    color: var(--text);
+    background:
+        #fcfaf7;
 
     outline: none;
 
@@ -1372,7 +1390,8 @@ textarea {
 input:focus,
 textarea:focus {
 
-    border-color: var(--brown);
+    border-color:
+        var(--brown);
 
     background: white;
 }
@@ -1386,26 +1405,20 @@ textarea {
 
 .submit {
 
+    padding: 14px;
+
     border: none;
 
     border-radius: 7px;
 
-    padding: 14px;
-
-    background: var(--brown);
+    background:
+        var(--brown);
 
     color: white;
 
     font-weight: bold;
 
     cursor: pointer;
-
-    transition: .3s;
-}
-
-.submit:hover {
-
-    background: var(--brown-dark);
 }
 
 
@@ -1419,9 +1432,11 @@ footer {
 
     padding: 35px 7%;
 
-    border-top: 1px solid var(--border);
+    border-top:
+        1px solid var(--border);
 
-    background: #f4efe8;
+    background:
+        var(--bg2);
 }
 
 .footer-inner {
@@ -1432,170 +1447,18 @@ footer {
 
     display: flex;
 
-    align-items: center;
-
     justify-content: space-between;
 
-    color: var(--text-soft);
+    align-items: center;
+
+    color: var(--muted);
 
     font-size: 12px;
 }
 
 
 /* =====================================================
-   ANIMATIONS
-===================================================== */
-
-@keyframes robotFloat {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
-}
-
-@keyframes robotHand {
-
-    0%,100% {
-        transform: rotate(-38deg);
-    }
-
-    50% {
-        transform: rotate(-58deg);
-    }
-}
-
-@keyframes blink {
-
-    0%,45%,55%,100% {
-        transform: scaleY(1);
-    }
-
-    48%,52% {
-        transform: scaleY(.1);
-    }
-}
-
-@keyframes orbitRotate {
-
-    from {
-        transform: rotate(-20deg);
-    }
-
-    to {
-        transform: rotate(340deg);
-    }
-}
-
-@keyframes spin {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes taskFloat {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-9px);
-    }
-}
-
-@keyframes dashboardFloat {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes chartGrow {
-
-    from {
-        opacity: .55;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes dataMove {
-
-    0% {
-        transform: translateX(-55px);
-        opacity: 0;
-    }
-
-    30% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(90px);
-        opacity: 0;
-    }
-}
-
-@keyframes dataMoveReverse {
-
-    0% {
-        transform: translateX(55px);
-        opacity: 0;
-    }
-
-    30% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(-90px);
-        opacity: 0;
-    }
-}
-
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-.reveal {
-
-    opacity: 0;
-
-    transform:
-        translateY(30px);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-}
-
-.reveal.active {
-
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-/* =====================================================
-   RESPONSIVE
+   MOBILE
 ===================================================== */
 
 @media(max-width:950px) {
@@ -1606,31 +1469,23 @@ footer {
     }
 
     .ai-scene {
-
-        height: 470px;
+        height: 500px;
     }
 
     .services-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 
     .process-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 
     .contact-grid {
-
         grid-template-columns: 1fr;
     }
 
     .cta-box {
-
         flex-direction: column;
-
         align-items: flex-start;
     }
 
@@ -1640,10 +1495,10 @@ footer {
 
         position: absolute;
 
+        top: 70px;
+
         left: 7%;
         right: 7%;
-
-        top: 70px;
 
         padding: 25px;
 
@@ -1653,21 +1508,17 @@ footer {
 
         background: white;
 
-        border: 1px solid var(--border);
+        border:
+            1px solid var(--border);
 
         border-radius: 10px;
-
-        box-shadow:
-            0 20px 50px rgba(50,30,10,.1);
     }
 
     .nav-links.show {
-
         display: flex;
     }
 
     .menu {
-
         display: block;
     }
 }
@@ -1676,20 +1527,18 @@ footer {
 @media(max-width:600px) {
 
     section {
-
         padding: 75px 6%;
     }
 
     .hero h1 {
 
-        font-size: 53px;
+        font-size: 52px;
 
         letter-spacing: -3px;
     }
 
     .services-grid,
     .process-grid {
-
         grid-template-columns: 1fr;
     }
 
@@ -1701,46 +1550,24 @@ footer {
     }
 
     .stat {
-
         border: none;
     }
 
     .ai-scene {
 
-        transform: scale(.72);
+        transform:
+            scale(.70);
 
         width: 140%;
 
         margin-left: -20%;
     }
 
-    .task-one {
-
-        left: -20px;
-    }
-
-    .task-two {
-
-        left: -20px;
-    }
-
-    .dashboard {
-
-        right: -20px;
-    }
-
-    .task-three {
-
-        right: -25px;
-    }
-
     .cta-box {
-
         padding: 35px;
     }
 
     .contact-grid {
-
         padding: 30px 20px;
     }
 
@@ -1767,41 +1594,33 @@ footer {
 
 <nav class="navbar">
 
-    <div class="nav-inner">
+<div class="nav-inner">
 
-        <a href="#" class="logo">
-            NEX<span>AI.</span>
-        </a>
+<a href="#" class="logo">
+NEX<span>AI.</span>
+</a>
 
-        <div class="nav-links" id="navLinks">
+<div class="nav-links" id="navLinks">
 
-            <a href="#services">
-                Services
-            </a>
+<a href="#services">Services</a>
 
-            <a href="#process">
-                Process
-            </a>
+<a href="#process">Process</a>
 
-            <a href="#why">
-                Why Us
-            </a>
+<a href="#why">Why Us</a>
 
-            <a href="#contact">
-                Contact
-            </a>
+<a href="#contact">Contact</a>
 
-            <a href="#contact" class="nav-button">
-                Let's Talk →
-            </a>
+<a href="#contact" class="nav-button">
+Let's Talk →
+</a>
 
-        </div>
+</div>
 
-        <div class="menu" onclick="toggleMenu()">
-            ☰
-        </div>
+<div class="menu" onclick="toggleMenu()">
+☰
+</div>
 
-    </div>
+</div>
 
 </nav>
 
@@ -1816,232 +1635,241 @@ footer {
 <div class="container hero-grid">
 
 
-<!-- HERO TEXT -->
+<div class="hero-content">
 
-<div class="reveal">
+<div class="badge">
 
-    <div class="badge">
+<span class="badge-dot"></span>
 
-        <span class="badge-dot"></span>
+AGENTIC AI SOLUTIONS
 
-        AGENTIC AI SOLUTIONS
-
-    </div>
+</div>
 
 
-    <h1>
+<h1>
 
-        Build smarter.
+Build smarter.
 
-        <span>
-            Automate everything.
-        </span>
+<span>
+Automate everything.
+</span>
 
-    </h1>
-
-
-    <p>
-
-        We build intelligent AI agents that reason,
-        plan and execute tasks — helping your business
-        move faster and operate smarter.
-
-    </p>
+</h1>
 
 
-    <div class="buttons">
+<p>
 
-        <a
-            href="#contact"
-            class="btn btn-primary"
-        >
-            Build Your AI Agent →
-        </a>
+We build intelligent AI agents that reason,
+plan and execute tasks — helping your business
+move faster and operate smarter.
 
-        <a
-            href="#services"
-            class="btn btn-secondary"
-        >
-            Explore Services
-        </a>
+</p>
 
-    </div>
+
+<div class="buttons">
+
+<a
+href="#contact"
+class="btn btn-primary"
+>
+Build Your AI Agent →
+</a>
+
+<a
+href="#services"
+class="btn btn-secondary"
+>
+Explore Services
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     AI AGENT
+===================================================== -->
+
+<div class="ai-scene">
+
+
+<div class="scene-glow"></div>
+
+<div class="orbit"></div>
+
+<div class="orbit-two"></div>
+
+
+<!-- CONNECTIONS -->
+
+<div class="connection connection-one"></div>
+
+<div class="connection connection-two"></div>
+
+
+<!-- DATA PARTICLES -->
+
+<div class="data-dot data-one"></div>
+
+<div class="data-dot data-two"></div>
+
+<div class="data-dot data-three"></div>
+
+
+
+<!-- TASK CARD -->
+
+<div class="task task-one">
+
+<span class="check">✓</span>
+
+<strong>
+Customer Request
+</strong>
+
+Analyzing incoming request...
+
+</div>
+
+
+
+<!-- TASK CARD -->
+
+<div class="task task-two">
+
+<span class="check">✓</span>
+
+<strong>
+Automating Workflow
+</strong>
+
+Processing business operations...
 
 </div>
 
 
 
 <!-- =================================================
-     AI AGENT ANIMATION
+     ROBOT
 ================================================= -->
 
-<div class="ai-scene reveal">
+<div class="robot">
 
-    <div class="scene-glow"></div>
+<div class="antenna"></div>
 
-    <div class="orbit"></div>
 
-    <div class="orbit-two"></div>
+<div class="robot-head">
 
+<div class="ear left"></div>
 
-    <!-- CONNECTIONS -->
+<div class="ear right"></div>
 
-    <div class="connection connection-one"></div>
 
-    <div class="connection connection-two"></div>
+<div class="robot-face">
 
+<div class="eye"></div>
 
-    <!-- DATA -->
+<div class="eye"></div>
 
-    <div class="data-dot data-one"></div>
+</div>
 
-    <div class="data-dot data-two"></div>
+</div>
 
 
-    <!-- TASK 1 -->
+<div class="robot-body">
 
-    <div class="task task-one">
+<div class="arm left">
 
-        <span class="check">✓</span>
+<div class="hand"></div>
 
-        <strong>
-            Collecting Data
-        </strong>
+</div>
 
-        Gathering information
-        from multiple sources.
 
-    </div>
+<div class="arm right">
 
+<div class="hand"></div>
 
-    <!-- TASK 2 -->
+</div>
 
-    <div class="task task-two">
 
-        <span class="check">✓</span>
+<div class="robot-chest">
+✦
+</div>
 
-        <strong>
-            Automating
-        </strong>
+</div>
 
-        Executing tasks and
-        updating systems.
+</div>
 
-    </div>
 
 
-    <!-- ROBOT -->
+<!-- =================================================
+     DASHBOARD
+================================================= -->
 
-    <div class="robot">
+<div class="dashboard">
 
-        <div class="antenna"></div>
+<div class="dashboard-title">
 
+<span>
+Business Dashboard
+</span>
 
-        <div class="robot-head">
+<span class="live">
+● LIVE
+</span>
 
-            <div class="ear left"></div>
+</div>
 
-            <div class="ear right"></div>
 
-            <div class="robot-face">
+<div class="chart">
 
-                <div class="eye"></div>
+<div class="bar"></div>
 
-                <div class="eye"></div>
+<div class="bar"></div>
 
-            </div>
+<div class="bar"></div>
 
-        </div>
+<div class="bar"></div>
 
+<div class="bar"></div>
 
-        <div class="robot-body">
+<div class="bar"></div>
 
-            <div class="arm left">
+</div>
 
-                <div class="hand"></div>
 
-            </div>
+<div class="dashboard-bottom">
 
+<span>
+Revenue Growth
+</span>
 
-            <div class="arm right">
+<strong>
++38.4%
+</strong>
 
-                <div class="hand"></div>
+</div>
 
-            </div>
+</div>
 
 
-            <div class="robot-chest">
-                ✦
-            </div>
 
-        </div>
+<!-- COMPLETED TASK -->
 
-    </div>
+<div class="task task-three">
 
+<span class="check">✓</span>
 
-    <!-- BUSINESS DASHBOARD -->
+<strong>
+Task Completed
+</strong>
 
-    <div class="dashboard">
+AI successfully completed
+the workflow.
 
-        <div class="dashboard-title">
-
-            <span>
-                Business Dashboard
-            </span>
-
-            <span class="live">
-                ● LIVE
-            </span>
-
-        </div>
-
-
-        <div class="chart">
-
-            <div class="bar"></div>
-
-            <div class="bar"></div>
-
-            <div class="bar"></div>
-
-            <div class="bar"></div>
-
-            <div class="bar"></div>
-
-            <div class="bar"></div>
-
-        </div>
-
-
-        <div class="dashboard-bottom">
-
-            <span>
-                Revenue Growth
-            </span>
-
-            <strong>
-                +38.4%
-            </strong>
-
-        </div>
-
-    </div>
-
-
-    <!-- COMPLETED -->
-
-    <div class="task task-three">
-
-        <span class="check">✓</span>
-
-        <strong>
-            Task Completed
-        </strong>
-
-        AI successfully completed
-        the workflow.
-
-    </div>
+</div>
 
 
 </div>
@@ -2057,149 +1885,149 @@ footer {
 ===================================================== -->
 
 <section
-    class="services"
-    id="services"
+class="services"
+id="services"
 >
 
 <div class="container">
 
-    <div class="section-label">
-        WHAT WE DO
-    </div>
+<div class="section-label">
+WHAT WE DO
+</div>
 
 
-    <h2 class="section-title reveal">
+<h2 class="section-title reveal">
 
-        AI systems that work for
-        <span>you.</span>
+AI systems that work for
+<span>you.</span>
 
-    </h2>
-
-
-    <p class="section-description reveal">
-
-        From autonomous agents to seamless automation,
-        we create intelligent systems that drive
-        real business impact.
-
-    </p>
+</h2>
 
 
-    <div class="services-grid">
+<p class="section-description reveal">
+
+From autonomous agents to seamless automation,
+we create intelligent systems that drive real
+business impact.
+
+</p>
 
 
-        <div class="service-card reveal">
-
-            <div class="service-icon">
-                ◈
-            </div>
-
-            <h3>
-                Agentic AI
-            </h3>
-
-            <p>
-                Autonomous AI agents that can reason,
-                plan, use tools and complete complex
-                tasks with minimal human input.
-            </p>
-
-        </div>
+<div class="services-grid">
 
 
-        <div class="service-card reveal">
+<div class="service-card reveal">
 
-            <div class="service-icon">
-                ⚡
-            </div>
+<div class="service-icon">
+◈
+</div>
 
-            <h3>
-                AI Automation
-            </h3>
+<h3>
+Agentic AI
+</h3>
 
-            <p>
-                Automate repetitive workflows and
-                integrate AI into your existing
-                business processes.
-            </p>
+<p>
+Autonomous AI agents that reason,
+plan, use tools and complete complex
+tasks with minimal human input.
+</p>
 
-        </div>
-
-
-        <div class="service-card reveal">
-
-            <div class="service-icon">
-                ●
-            </div>
-
-            <h3>
-                AI Chatbots
-            </h3>
-
-            <p>
-                Intelligent conversational agents for
-                customer support, sales and internal
-                operations.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="service-card reveal">
+<div class="service-card reveal">
 
-            <div class="service-icon">
-                🔗
-            </div>
+<div class="service-icon">
+⚡
+</div>
 
-            <h3>
-                AI Integrations
-            </h3>
+<h3>
+AI Automation
+</h3>
 
-            <p>
-                Connect AI systems with your CRM,
-                databases, APIs and existing tools.
-            </p>
+<p>
+Automate repetitive workflows and
+integrate AI into your existing
+business processes.
+</p>
 
-        </div>
-
-
-        <div class="service-card reveal">
-
-            <div class="service-icon">
-                ⚙
-            </div>
-
-            <h3>
-                Custom AI Solutions
-            </h3>
-
-            <p>
-                Tailored AI systems designed around
-                your unique business requirements.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="service-card reveal">
+<div class="service-card reveal">
 
-            <div class="service-icon">
-                ◎
-            </div>
+<div class="service-icon">
+●
+</div>
 
-            <h3>
-                AI Strategy
-            </h3>
+<h3>
+AI Chatbots
+</h3>
 
-            <p>
-                Identify opportunities and implement
-                AI where it creates maximum value.
-            </p>
+<p>
+Intelligent conversational agents for
+customer support, sales and internal
+operations.
+</p>
 
-        </div>
+</div>
 
 
-    </div>
+<div class="service-card reveal">
+
+<div class="service-icon">
+🔗
+</div>
+
+<h3>
+AI Integrations
+</h3>
+
+<p>
+Connect AI systems with your CRM,
+databases, APIs and existing tools.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+⚙
+</div>
+
+<h3>
+Custom AI Solutions
+</h3>
+
+<p>
+Tailored AI systems designed around
+your unique business requirements.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+◎
+</div>
+
+<h3>
+AI Strategy
+</h3>
+
+<p>
+Identify opportunities and implement
+AI where it creates maximum value.
+</p>
+
+</div>
+
+
+</div>
 
 </div>
 
@@ -2215,96 +2043,96 @@ footer {
 
 <div class="container">
 
-    <div class="section-label">
-        OUR PROCESS
-    </div>
+<div class="section-label">
+OUR PROCESS
+</div>
 
 
-    <h2 class="section-title reveal">
+<h2 class="section-title reveal">
 
-        From idea to intelligent
-        <span>system.</span>
+From idea to intelligent
+<span>system.</span>
 
-    </h2>
-
-
-    <div class="process-grid">
+</h2>
 
 
-        <div class="process-card reveal">
-
-            <div class="process-number">
-                01
-            </div>
-
-            <h3>
-                Discover
-            </h3>
-
-            <p>
-                We understand your business,
-                challenges and opportunities
-                for AI automation.
-            </p>
-
-        </div>
+<div class="process-grid">
 
 
-        <div class="process-card reveal">
+<div class="process-card reveal">
 
-            <div class="process-number">
-                02
-            </div>
+<div class="process-number">
+01
+</div>
 
-            <h3>
-                Design
-            </h3>
+<h3>
+Discover
+</h3>
 
-            <p>
-                We architect the AI solution,
-                workflows, tools and integrations.
-            </p>
+<p>
+We understand your business,
+challenges and opportunities
+for AI automation.
+</p>
 
-        </div>
-
-
-        <div class="process-card reveal">
-
-            <div class="process-number">
-                03
-            </div>
-
-            <h3>
-                Build
-            </h3>
-
-            <p>
-                We develop, test and integrate
-                the system with your environment.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="process-card reveal">
+<div class="process-card reveal">
 
-            <div class="process-number">
-                04
-            </div>
+<div class="process-number">
+02
+</div>
 
-            <h3>
-                Scale
-            </h3>
+<h3>
+Design
+</h3>
 
-            <p>
-                We deploy, monitor and continuously
-                improve the system as you grow.
-            </p>
+<p>
+We architect the AI solution,
+workflows, tools and integrations.
+</p>
 
-        </div>
+</div>
 
 
-    </div>
+<div class="process-card reveal">
+
+<div class="process-number">
+03
+</div>
+
+<h3>
+Build
+</h3>
+
+<p>
+We develop, test and integrate
+the system with your environment.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+04
+</div>
+
+<h3>
+Scale
+</h3>
+
+<p>
+We deploy, monitor and continuously
+improve the system as you grow.
+</p>
+
+</div>
+
+
+</div>
 
 </div>
 
@@ -2321,56 +2149,56 @@ footer {
 <div class="stats-grid">
 
 
-    <div class="stat reveal">
+<div class="stat reveal">
 
-        <h3>
-            24/7
-        </h3>
+<h3>
+24/7
+</h3>
 
-        <p>
-            Autonomous Operations
-        </p>
+<p>
+Autonomous Operations
+</p>
 
-    </div>
-
-
-    <div class="stat reveal">
-
-        <h3>
-            10×
-        </h3>
-
-        <p>
-            Workflow Efficiency
-        </p>
-
-    </div>
+</div>
 
 
-    <div class="stat reveal">
+<div class="stat reveal">
 
-        <h3>
-            99%
-        </h3>
+<h3>
+10×
+</h3>
 
-        <p>
-            Reliability
-        </p>
+<p>
+Workflow Efficiency
+</p>
 
-    </div>
+</div>
 
 
-    <div class="stat reveal">
+<div class="stat reveal">
 
-        <h3>
-            ∞
-        </h3>
+<h3>
+99%
+</h3>
 
-        <p>
-            Possibilities
-        </p>
+<p>
+Reliability
+</p>
 
-    </div>
+</div>
+
+
+<div class="stat reveal">
+
+<h3>
+∞
+</h3>
+
+<p>
+Possibilities
+</p>
+
+</div>
 
 
 </div>
@@ -2387,39 +2215,39 @@ footer {
 
 <div class="cta-box reveal">
 
-    <div>
+<div>
 
-        <h2>
+<h2>
 
-            Let's build your next
+Let's build your next
 
-            <span>
-                AI advantage.
-            </span>
+<span>
+AI advantage.
+</span>
 
-        </h2>
+</h2>
 
-    </div>
+</div>
 
 
-    <div>
+<div>
 
-        <p>
+<p>
 
-            Share your goals and let's explore
-            how AI agents can transform your
-            business.
+Share your goals and let's explore
+how AI agents can transform
+your business.
 
-        </p>
+</p>
 
-        <a
-            href="#contact"
-            class="btn btn-primary"
-        >
-            Start a Conversation →
-        </a>
+<a
+href="#contact"
+class="btn btn-primary"
+>
+Start a Conversation →
+</a>
 
-    </div>
+</div>
 
 </div>
 
@@ -2432,86 +2260,86 @@ footer {
 ===================================================== -->
 
 <section
-    class="contact"
-    id="contact"
+class="contact"
+id="contact"
 >
 
 <div class="contact-grid reveal">
 
 
-    <div>
+<div>
 
-        <div class="section-label">
-            CONTACT US
-        </div>
-
-
-        <h2>
-            Let's create
-            something intelligent.
-        </h2>
+<div class="section-label">
+CONTACT US
+</div>
 
 
-        <p>
-
-            Tell us what you're trying to automate
-            and we'll help you identify the right
-            AI solution.
-
-        </p>
+<h2>
+Let's create
+something intelligent.
+</h2>
 
 
-        <div class="contact-info">
+<p>
 
-            <div>
-                ✉ hello@nexai.com
-            </div>
+Tell us what you're trying to automate
+and we'll help you identify the right
+AI solution.
 
-            <div>
-                ☎ +1 (123) 456-7890
-            </div>
-
-            <div>
-                ◉ Remote Worldwide
-            </div>
-
-        </div>
-
-    </div>
+</p>
 
 
-    <form id="contactForm">
+<div class="contact-info">
 
-        <input
-            type="text"
-            placeholder="Your Name"
-            required
-        >
+<div>
+✉ hello@nexai.com
+</div>
 
-        <input
-            type="email"
-            placeholder="Email Address"
-            required
-        >
+<div>
+☎ +1 (123) 456-7890
+</div>
 
-        <input
-            type="text"
-            placeholder="Company"
-        >
+<div>
+◉ Remote Worldwide
+</div>
 
-        <textarea
-            placeholder="Tell us about your project..."
-            required
-        ></textarea>
+</div>
 
-        <button
-            type="submit"
-            class="submit"
-        >
-            Send Message →
-        </button>
+</div>
 
-    </form>
+
+<form id="contactForm">
+
+<input
+type="text"
+placeholder="Your Name"
+required
+>
+
+<input
+type="email"
+placeholder="Email Address"
+required
+>
+
+<input
+type="text"
+placeholder="Company"
+>
+
+<textarea
+placeholder="Tell us about your project..."
+required
+></textarea>
+
+<button
+type="submit"
+class="submit"
+>
+Send Message →
+</button>
+
+</form>
 
 
 </div>
@@ -2528,17 +2356,17 @@ footer {
 
 <div class="footer-inner">
 
-    <div class="logo">
-        NEX<span>AI.</span>
-    </div>
+<div class="logo">
+NEX<span>AI.</span>
+</div>
 
-    <div>
-        © 2026 NEXAI. All rights reserved.
-    </div>
+<div>
+© 2026 NEXAI. All rights reserved.
+</div>
 
-    <div>
-        LinkedIn · Instagram · Email
-    </div>
+<div>
+LinkedIn · Instagram · Email
+</div>
 
 </div>
 
@@ -2546,66 +2374,736 @@ footer {
 
 
 
+<!-- =====================================================
+     JAVASCRIPT + GSAP ANIMATIONS
+===================================================== -->
+
 <script>
 
-/* ==========================================
+
+/* =====================================================
+   REGISTER GSAP
+===================================================== */
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+
+/* =====================================================
    MOBILE MENU
-========================================== */
+===================================================== */
 
 function toggleMenu() {
 
-    const menu =
-        document.getElementById("navLinks");
-
-    menu.classList.toggle("show");
+    document
+        .getElementById("navLinks")
+        .classList.toggle("show");
 
 }
 
 
-/* ==========================================
-   SCROLL REVEAL
-========================================== */
 
-const elements =
-    document.querySelectorAll(".reveal");
+/* =====================================================
+   HERO ENTRANCE
+===================================================== */
 
-function reveal() {
+const heroAnimation = gsap.timeline();
 
-    const screenHeight =
-        window.innerHeight;
 
-    elements.forEach(element => {
+heroAnimation
 
-        const position =
-            element.getBoundingClientRect().top;
+.from(".navbar", {
 
-        if (
-            position <
-            screenHeight - 70
-        ) {
+    y: -80,
 
-            element.classList.add("active");
+    opacity: 0,
+
+    duration: .8,
+
+    ease: "power3.out"
+
+})
+
+
+.from(".badge", {
+
+    y: 30,
+
+    opacity: 0,
+
+    duration: .6,
+
+    ease: "power3.out"
+
+}, "-=.3")
+
+
+.from(".hero h1", {
+
+    y: 70,
+
+    opacity: 0,
+
+    duration: 1,
+
+    ease: "power4.out"
+
+}, "-=.2")
+
+
+.from(".hero p", {
+
+    y: 30,
+
+    opacity: 0,
+
+    duration: .7,
+
+    ease: "power3.out"
+
+}, "-=.5")
+
+
+.from(".buttons", {
+
+    y: 25,
+
+    opacity: 0,
+
+    duration: .6
+
+}, "-=.4")
+
+
+.from(".ai-scene", {
+
+    scale: .7,
+
+    opacity: 0,
+
+    duration: 1.2,
+
+    ease: "power3.out"
+
+}, "-=.8");
+
+
+
+/* =====================================================
+   ROBOT FLOATING
+===================================================== */
+
+gsap.to(".robot", {
+
+    y: -14,
+
+    duration: 2.5,
+
+    ease: "sine.inOut",
+
+    repeat: -1,
+
+    yoyo: true
+
+});
+
+
+
+/* =====================================================
+   ROBOT HEAD MOVEMENT
+===================================================== */
+
+gsap.to(".robot-head", {
+
+    rotation: 2,
+
+    duration: 2,
+
+    ease: "sine.inOut",
+
+    repeat: -1,
+
+    yoyo: true
+
+});
+
+
+
+/* =====================================================
+   ROBOT ARM
+===================================================== */
+
+gsap.to(".arm.right", {
+
+    rotation: -55,
+
+    duration: 1.3,
+
+    ease: "power2.inOut",
+
+    repeat: -1,
+
+    yoyo: true,
+
+    repeatDelay: 1
+
+});
+
+
+
+/* =====================================================
+   ROBOT EYES
+===================================================== */
+
+gsap.to(".eye", {
+
+    scale: 1.2,
+
+    opacity: .65,
+
+    duration: .8,
+
+    ease: "sine.inOut",
+
+    repeat: -1,
+
+    yoyo: true
+
+});
+
+
+
+/* =====================================================
+   ROBOT CHEST AI PROCESSING
+===================================================== */
+
+gsap.to(".robot-chest", {
+
+    scale: 1.15,
+
+    boxShadow:
+        "0 0 25px rgba(193,154,105,.8)",
+
+    duration: .8,
+
+    ease: "sine.inOut",
+
+    repeat: -1,
+
+    yoyo: true
+
+});
+
+
+
+/* =====================================================
+   ORBIT ANIMATION
+===================================================== */
+
+gsap.to(".orbit", {
+
+    rotation: 340,
+
+    duration: 12,
+
+    ease: "none",
+
+    repeat: -1
+
+});
+
+
+gsap.to(".orbit-two", {
+
+    rotation: 360,
+
+    duration: 20,
+
+    ease: "none",
+
+    repeat: -1
+
+});
+
+
+
+/* =====================================================
+   DASHBOARD FLOAT
+===================================================== */
+
+gsap.to(".dashboard", {
+
+    y: -12,
+
+    duration: 2.5,
+
+    ease: "sine.inOut",
+
+    repeat: -1,
+
+    yoyo: true
+
+});
+
+
+
+/* =====================================================
+   TASK CARDS
+===================================================== */
+
+gsap.to(".task-one", {
+
+    x: 8,
+
+    y: -10,
+
+    duration: 2,
+
+    ease: "sine.inOut",
+
+    repeat: -1,
+
+    yoyo: true
+
+});
+
+
+gsap.to(".task-two", {
+
+    x: -8,
+
+    y: -10,
+
+    duration: 2.7,
+
+    ease: "sine.inOut",
+
+    repeat: -1,
+
+    yoyo: true
+
+});
+
+
+gsap.to(".task-three", {
+
+    x: 8,
+
+    y: -8,
+
+    duration: 2.3,
+
+    ease: "sine.inOut",
+
+    repeat: -1,
+
+    yoyo: true
+
+});
+
+
+
+/* =====================================================
+   CHART INITIAL ANIMATION
+===================================================== */
+
+gsap.fromTo(
+
+    ".bar",
+
+    {
+        scaleY: 0
+    },
+
+    {
+        scaleY: 1,
+
+        duration: 1.3,
+
+        stagger: .12,
+
+        ease: "power3.out",
+
+        delay: 1
+    }
+
+);
+
+
+
+/* =====================================================
+   LIVE CHART MOVEMENT
+===================================================== */
+
+function animateChart() {
+
+    document
+        .querySelectorAll(".bar")
+        .forEach((bar) => {
+
+            const height =
+                0.5 +
+                Math.random() * .5;
+
+            gsap.to(bar, {
+
+                scaleY: height,
+
+                duration: 1,
+
+                ease: "power2.inOut"
+
+            });
+
+        });
+
+}
+
+setInterval(
+    animateChart,
+    2500
+);
+
+
+
+/* =====================================================
+   DATA PARTICLE 1
+   BUSINESS → AI
+===================================================== */
+
+function dataToAI() {
+
+    gsap.fromTo(
+
+        ".data-one",
+
+        {
+            x: -70,
+
+            y: 0,
+
+            opacity: 0
+
+        },
+
+        {
+            x: 90,
+
+            y: 25,
+
+            opacity: 1,
+
+            duration: 1.5,
+
+            ease: "power1.inOut",
+
+            onComplete: () => {
+
+                gsap.to(".robot-chest", {
+
+                    scale: 1.3,
+
+                    duration: .2,
+
+                    yoyo: true,
+
+                    repeat: 1
+
+                });
+
+            }
 
         }
 
-    });
+    );
 
 }
 
-window.addEventListener(
-    "scroll",
-    reveal
-);
+dataToAI();
 
-window.addEventListener(
-    "load",
-    reveal
+setInterval(
+    dataToAI,
+    2800
 );
 
 
-/* ==========================================
+
+/* =====================================================
+   DATA PARTICLE 2
+   AI → DASHBOARD
+===================================================== */
+
+function aiToDashboard() {
+
+    gsap.fromTo(
+
+        ".data-two",
+
+        {
+
+            x: 70,
+
+            opacity: 0
+
+        },
+
+        {
+
+            x: -80,
+
+            y: -20,
+
+            opacity: 1,
+
+            duration: 1.5,
+
+            ease: "power1.inOut"
+
+        }
+
+    );
+
+}
+
+aiToDashboard();
+
+setInterval(
+    aiToDashboard,
+    3000
+);
+
+
+
+/* =====================================================
+   DATA PARTICLE 3
+===================================================== */
+
+function dataFlow() {
+
+    gsap.fromTo(
+
+        ".data-three",
+
+        {
+
+            x: -50,
+
+            opacity: 0
+
+        },
+
+        {
+
+            x: 100,
+
+            y: -40,
+
+            opacity: 1,
+
+            duration: 1.8,
+
+            ease: "power1.inOut"
+
+        }
+
+    );
+
+}
+
+dataFlow();
+
+setInterval(
+    dataFlow,
+    3200
+);
+
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+gsap.utils
+    .toArray(".reveal")
+    .forEach((element) => {
+
+        gsap.fromTo(
+
+            element,
+
+            {
+                y: 60,
+                opacity: 0
+            },
+
+            {
+
+                y: 0,
+
+                opacity: 1,
+
+                duration: .9,
+
+                ease: "power3.out",
+
+                scrollTrigger: {
+
+                    trigger: element,
+
+                    start: "top 85%",
+
+                    toggleActions:
+                        "play none none reverse"
+
+                }
+
+            }
+
+        );
+
+    });
+
+
+
+/* =====================================================
+   SERVICES STAGGER
+===================================================== */
+
+gsap.from(".service-card", {
+
+    scrollTrigger: {
+
+        trigger: ".services-grid",
+
+        start: "top 80%"
+
+    },
+
+    y: 60,
+
+    opacity: 0,
+
+    duration: .8,
+
+    stagger: .12,
+
+    ease: "power3.out"
+
+});
+
+
+
+/* =====================================================
+   PROCESS ANIMATION
+===================================================== */
+
+gsap.from(".process-card", {
+
+    scrollTrigger: {
+
+        trigger: ".process-grid",
+
+        start: "top 80%"
+
+    },
+
+    y: 50,
+
+    opacity: 0,
+
+    duration: .8,
+
+    stagger: .18,
+
+    ease: "power3.out"
+
+});
+
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+gsap.from(".stat", {
+
+    scrollTrigger: {
+
+        trigger: ".stats",
+
+        start: "top 80%"
+
+    },
+
+    scale: .7,
+
+    opacity: 0,
+
+    duration: .8,
+
+    stagger: .15,
+
+    ease: "back.out(1.7)"
+
+});
+
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+gsap.from(".cta-box", {
+
+    scrollTrigger: {
+
+        trigger: ".cta-box",
+
+        start: "top 85%"
+
+    },
+
+    y: 70,
+
+    opacity: 0,
+
+    duration: 1,
+
+    ease: "power3.out"
+
+});
+
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+gsap.from(".contact-grid", {
+
+    scrollTrigger: {
+
+        trigger: ".contact-grid",
+
+        start: "top 85%"
+
+    },
+
+    y: 60,
+
+    opacity: 0,
+
+    duration: 1,
+
+    ease: "power3.out"
+
+});
+
+
+
+/* =====================================================
    CONTACT FORM
-========================================== */
+===================================================== */
 
 document
     .getElementById("contactForm")
@@ -2623,6 +3121,7 @@ document
 
         }
     );
+
 
 </script>
 
