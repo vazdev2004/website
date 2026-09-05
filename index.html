@@ -1,1876 +1,1018 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NEXAI — Agentic AI Solutions</title>
 
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-
 <style>
-
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-:root {
-
-    --bg: #faf8f4;
-    --bg2: #f3ede5;
-
-    --brown: #9a6a35;
-    --brown-dark: #69431f;
-
-    --gold: #c19a69;
-    --gold-light: #dfc39d;
-
-    --text: #191613;
-    --muted: #6b6259;
-
-    --border: #ded1c0;
-
-    --white: #ffffff;
-}
-
-
-/* =====================================================
-   RESET
-===================================================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background: var(--bg);
-
-    color: var(--text);
-
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-section {
-    padding: 110px 7%;
-}
-
-.container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-
-/* =====================================================
-   NAVBAR
-===================================================== */
-
-.navbar {
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    z-index: 1000;
-
-    padding: 18px 7%;
-
-    background:
-        rgba(250,248,244,.85);
-
-    backdrop-filter:
-        blur(18px);
-
-    border-bottom:
-        1px solid rgba(154,106,53,.12);
+:root{
+    --bg:#faf8f4;
+    --cream:#f1e8dc;
+    --brown:#946737;
+    --dark:#211b16;
+    --muted:#756b60;
+    --line:#dfd2c1;
+    --white:#fff;
 }
-
-.nav-inner {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    display: flex;
 
-    align-items: center;
-
-    justify-content: space-between;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-
-.logo {
-
-    font-size: 25px;
 
-    font-weight: 900;
-
-    letter-spacing: -1px;
+html{
+    scroll-behavior:smooth;
 }
 
-.logo span {
-    color: var(--brown);
+body{
+    font-family:Arial,sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    overflow-x:hidden;
 }
-
-.nav-links {
-
-    display: flex;
-
-    align-items: center;
 
-    gap: 30px;
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
-.nav-links a {
-
-    font-size: 14px;
-
-    color: #554d45;
-
-    transition: .3s;
+section{
+    padding:100px 7%;
 }
 
-.nav-links a:hover {
-    color: var(--brown);
+.container{
+    max-width:1150px;
+    margin:auto;
 }
-
-.nav-button {
-
-    padding: 11px 20px;
-
-    background: var(--brown);
-
-    color: white !important;
 
-    border-radius: 8px;
 
-    font-weight: 700;
+/* NAVBAR */
 
-    box-shadow:
-        0 10px 25px rgba(154,106,53,.2);
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+    padding:18px 7%;
+    background:#faf8f4dd;
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #dfd2c155;
 }
 
-.menu {
-    display: none;
-    font-size: 25px;
-    cursor: pointer;
+.nav{
+    max-width:1150px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero {
-
-    min-height: 100vh;
-
-    padding-top: 140px;
-
-    display: flex;
-
-    align-items: center;
-
-    overflow: hidden;
-
-    position: relative;
-}
-
-.hero::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 700px;
-    height: 700px;
-
-    right: -300px;
-    top: 50px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(190,150,100,.17),
-            transparent 68%
-        );
+.logo{
+    font-size:24px;
+    font-weight:900;
 }
-
-.hero-grid {
 
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 50px;
-
-    align-items: center;
+.logo span{
+    color:var(--brown);
 }
-
-
-/* =====================================================
-   HERO TEXT
-===================================================== */
-
-.badge {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 8px 15px;
-
-    border:
-        1px solid var(--border);
 
-    border-radius: 30px;
-
-    background:
-        rgba(255,255,255,.5);
-
-    color: var(--brown-dark);
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    letter-spacing: .5px;
-
-    margin-bottom: 25px;
+.links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+    font-size:14px;
+    color:var(--muted);
 }
-
-.badge-dot {
 
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: var(--brown);
-
-    box-shadow:
-        0 0 12px rgba(154,106,53,.6);
+.links a:hover{
+    color:var(--brown);
 }
-
-.hero h1 {
-
-    font-size:
-        clamp(55px,7vw,88px);
-
-    line-height: .94;
-
-    letter-spacing: -5px;
 
-    margin-bottom: 28px;
+.nav-btn,.btn{
+    background:var(--brown);
+    color:white;
+    padding:13px 20px;
+    border-radius:7px;
+    font-weight:bold;
+    display:inline-block;
 }
 
-.hero h1 span {
-
-    display: block;
-
-    font-family: Georgia, serif;
-
-    font-style: italic;
-
-    font-weight: 400;
-
-    color: var(--brown);
+.nav-btn{
+    padding:10px 17px;
 }
-
-.hero p {
-
-    max-width: 570px;
 
-    font-size: 17px;
-
-    color: var(--muted);
-
-    margin-bottom: 32px;
+.menu{
+    display:none;
+    font-size:25px;
 }
-
-.buttons {
 
-    display: flex;
 
-    gap: 12px;
+/* HERO */
 
-    flex-wrap: wrap;
+.hero{
+    min-height:100vh;
+    padding-top:140px;
+    display:flex;
+    align-items:center;
 }
-
-.btn {
-
-    display: inline-block;
-
-    padding: 14px 23px;
-
-    border-radius: 8px;
 
-    font-size: 14px;
-
-    font-weight: 700;
-
-    transition: .3s;
+.hero-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
 }
-
-.btn-primary {
 
-    background: var(--brown);
-
-    color: white;
-
-    box-shadow:
-        0 12px 30px rgba(154,106,53,.2);
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border:1px solid var(--line);
+    border-radius:30px;
+    font-size:11px;
+    font-weight:bold;
+    color:var(--brown);
+    margin-bottom:24px;
 }
-
-.btn-primary:hover {
-
-    background: var(--brown-dark);
 
-    transform:
-        translateY(-3px);
+.badge i{
+    display:inline-block;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--brown);
+    margin-right:7px;
+    animation:pulse 1.5s infinite;
 }
 
-.btn-secondary {
-
-    background: white;
-
-    border:
-        1px solid var(--border);
-
-    color: var(--brown-dark);
+h1{
+    font-size:clamp(52px,7vw,82px);
+    line-height:.95;
+    letter-spacing:-4px;
+    margin-bottom:25px;
 }
 
-.btn-secondary:hover {
-    transform: translateY(-3px);
+h1 span{
+    display:block;
+    color:var(--brown);
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-weight:400;
 }
-
-
-/* =====================================================
-   AI SCENE
-===================================================== */
-
-.ai-scene {
-
-    height: 550px;
 
-    position: relative;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
+.hero p{
+    max-width:550px;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:30px;
 }
-
-
-/* AI GLOW */
-
-.scene-glow {
-
-    position: absolute;
 
-    width: 440px;
-    height: 440px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(198,158,108,.22),
-            rgba(198,158,108,.06) 45%,
-            transparent 70%
-        );
-
-    filter: blur(3px);
+.buttons{
+    display:flex;
+    gap:12px;
 }
-
-
-/* ORBITS */
-
-.orbit {
-
-    position: absolute;
 
-    width: 450px;
-    height: 175px;
-
-    border:
-        1px solid rgba(154,106,53,.22);
-
-    border-radius: 50%;
-
-    transform:
-        rotate(-20deg);
+.btn.alt{
+    background:white;
+    color:var(--brown);
+    border:1px solid var(--line);
 }
 
-.orbit-two {
 
-    position: absolute;
+/* AI SCENE */
 
-    width: 360px;
-    height: 360px;
-
-    border:
-        1px solid rgba(154,106,53,.12);
-
-    border-radius: 50%;
+.ai{
+    height:500px;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
-
-
-/* =====================================================
-   ROBOT
-===================================================== */
 
-.robot {
-
-    width: 185px;
-
-    position: relative;
-
-    z-index: 10;
+.glow{
+    position:absolute;
+    width:390px;
+    height:390px;
+    border-radius:50%;
+    background:radial-gradient(circle,#d4b58d55,transparent 68%);
+    animation:glow 4s ease-in-out infinite;
 }
-
-
-/* antenna */
-
-.antenna {
-
-    width: 4px;
-    height: 27px;
+
+.orbit{
+    position:absolute;
+    width:420px;
+    height:170px;
+    border:1px solid #94673733;
+    border-radius:50%;
+    transform:rotate(-20deg);
+    animation:spin 12s linear infinite;
+}
+
+.orbit2{
+    position:absolute;
+    width:330px;
+    height:330px;
+    border:1px solid #94673718;
+    border-radius:50%;
+    animation:spin 18s linear infinite reverse;
+}
 
-    background: var(--brown);
 
-    margin: auto;
+/* ROBOT */
 
-    position: relative;
+.robot{
+    width:170px;
+    position:relative;
+    z-index:5;
+    animation:float 3s ease-in-out infinite;
 }
 
-.antenna::before {
+.antenna{
+    width:4px;
+    height:25px;
+    background:var(--brown);
+    margin:auto;
+    position:relative;
+}
 
-    content: "";
-
-    position: absolute;
-
-    width: 11px;
-    height: 11px;
-
-    top: -7px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    border-radius: 50%;
-
-    background:
-        var(--gold);
-
-    box-shadow:
-        0 0 15px rgba(193,154,105,.8);
+.antenna:before{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:#c49b68;
+    border-radius:50%;
+    top:-7px;
+    left:50%;
+    transform:translateX(-50%);
+    box-shadow:0 0 15px #c49b68;
+}
+
+.head{
+    width:145px;
+    height:100px;
+    margin:auto;
+    background:linear-gradient(145deg,#fff,#ded1c0);
+    border:2px solid #c7b59e;
+    border-radius:35px;
+    padding:16px;
+    box-shadow:0 20px 40px #5b3d2220;
 }
-
-
-/* HEAD */
-
-.robot-head {
-
-    width: 150px;
-    height: 105px;
-
-    margin: auto;
-
-    position: relative;
-
-    border-radius: 38px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #e4d9ca
-        );
-
-    border:
-        2px solid #c7b397;
-
-    box-shadow:
-        0 25px 50px rgba(70,45,25,.16);
+.face{
+    height:100%;
+    background:#211b16;
+    border-radius:23px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
 }
-
-
-/* EARS */
-
-.ear {
-
-    position: absolute;
-
-    width: 20px;
-    height: 42px;
 
-    top: 31px;
-
-    border-radius: 10px;
-
-    background: #d4c0a7;
-
-    border:
-        2px solid #b99d7d;
+.eye{
+    width:14px;
+    height:21px;
+    background:#e4bd86;
+    border-radius:50%;
+    box-shadow:0 0 14px #e4bd86;
+    animation:blink 3s infinite;
 }
 
-.ear.left {
-    left: -17px;
+.body{
+    width:130px;
+    height:120px;
+    margin:-3px auto;
+    background:linear-gradient(145deg,#fff,#d9c9b4);
+    border:2px solid #c7b59e;
+    border-radius:35px 35px 22px 22px;
+    position:relative;
 }
 
-.ear.right {
-    right: -17px;
+.chest{
+    position:absolute;
+    width:50px;
+    height:40px;
+    left:50%;
+    top:30px;
+    transform:translateX(-50%);
+    border-radius:10px;
+    background:#2b221b;
+    color:#d8b27f;
+    display:grid;
+    place-items:center;
+    animation:chest 1.5s infinite;
 }
-
-
-/* FACE */
-
-.robot-face {
-
-    position: absolute;
 
-    inset: 17px 15px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 25px;
-
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #332a22,
-            #17130f
-        );
-
-    box-shadow:
-        inset 0 0 20px rgba(0,0,0,.7);
+.arm{
+    position:absolute;
+    width:28px;
+    height:82px;
+    top:7px;
+    background:#dfd1bf;
+    border:2px solid #bda78a;
+    border-radius:20px;
 }
 
-
-/* EYES */
-
-.eye {
-
-    width: 16px;
-    height: 23px;
-
-    border-radius: 50%;
-
-    background:
-        #e4bd86;
-
-    box-shadow:
-        0 0 14px rgba(228,189,134,.8);
+.arm.left{
+    left:-30px;
 }
-
 
-/* BODY */
-
-.robot-body {
-
-    width: 135px;
-    height: 125px;
-
-    margin:
-        -4px auto 0;
-
-    position: relative;
-
-    border-radius:
-        38px 38px 25px 25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #ddd0be
-        );
-
-    border:
-        2px solid #c7b397;
-
-    box-shadow:
-        0 25px 45px rgba(70,45,25,.13);
+.arm.right{
+    right:-30px;
+    animation:wave 2.5s ease-in-out infinite;
+    transform-origin:top;
 }
-
-
-/* CHEST */
-
-.robot-chest {
-
-    position: absolute;
-
-    width: 55px;
-    height: 42px;
-
-    left: 50%;
-    top: 30px;
 
-    transform:
-        translateX(-50%);
-
-    border-radius: 12px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background:
-        #30271f;
-
-    border:
-        1px solid #b99465;
-
-    color:
-        var(--gold-light);
-
-    font-size: 18px;
+.hand{
+    width:25px;
+    height:25px;
+    position:absolute;
+    bottom:-15px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:50%;
+    background:#d0bda3;
 }
-
-
-/* ARMS */
-
-.arm {
-
-    position: absolute;
-
-    width: 31px;
-    height: 90px;
-
-    top: 8px;
 
-    border-radius: 20px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #f0e8dc,
-            #cdbca5
-        );
+/* CARDS */
 
-    border:
-        2px solid #bda689;
+.card{
+    position:absolute;
+    z-index:10;
+    width:180px;
+    padding:14px;
+    background:#fffffff5;
+    border:1px solid var(--line);
+    border-radius:10px;
+    box-shadow:0 15px 35px #5b3d2214;
+    font-size:11px;
+    color:var(--muted);
 }
 
-.arm.left {
-    left: -32px;
+.card strong{
+    display:block;
+    color:var(--dark);
+    margin-bottom:5px;
 }
 
-.arm.right {
-    right: -32px;
+.card b{
+    float:right;
+    color:var(--brown);
 }
 
-
-/* HAND */
-
-.hand {
-
-    width: 28px;
-    height: 28px;
-
-    position: absolute;
-
-    bottom: -17px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    border-radius: 50%;
-
-    background: #d7c6ae;
-
-    border:
-        2px solid #b79b79;
+.card1{
+    left:0;
+    top:60px;
+    animation:card1 3s ease-in-out infinite;
 }
-
-
-/* =====================================================
-   TASK CARDS
-===================================================== */
-
-.task {
-
-    position: absolute;
-
-    width: 185px;
 
-    padding: 14px 16px;
-
-    background:
-        rgba(255,255,255,.95);
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 11px;
-
-    box-shadow:
-        0 20px 45px rgba(80,55,30,.10);
-
-    font-size: 11px;
-
-    color: var(--muted);
-
-    z-index: 20;
+.card2{
+    left:10px;
+    bottom:55px;
+    animation:card2 3.5s ease-in-out infinite;
 }
 
-.task strong {
-
-    display: block;
-
-    color: var(--text);
-
-    font-size: 12px;
-
-    margin-bottom: 4px;
+.card3{
+    right:0;
+    bottom:60px;
+    animation:card3 3s ease-in-out infinite;
 }
-
-.check {
 
-    float: right;
 
-    color: var(--brown);
+/* DASHBOARD */
 
-    font-size: 15px;
+.dashboard{
+    position:absolute;
+    right:0;
+    top:35px;
+    width:200px;
+    padding:17px;
+    background:white;
+    border:1px solid var(--line);
+    border-radius:11px;
+    box-shadow:0 20px 40px #5b3d2215;
+    z-index:8;
+    animation:dashboard 3.5s ease-in-out infinite;
 }
 
-.task-one {
-
-    left: 0;
-    top: 70px;
+.dash-title{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    font-weight:bold;
+    margin-bottom:18px;
 }
-
-.task-two {
 
-    left: 15px;
-    bottom: 70px;
+.live{
+    color:var(--brown);
+    font-size:9px;
 }
 
-.task-three {
-
-    right: -10px;
-    bottom: 75px;
+.chart{
+    height:70px;
+    display:flex;
+    align-items:end;
+    gap:6px;
+    margin-bottom:13px;
 }
-
-
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
-.dashboard {
-
-    position: absolute;
-
-    right: -5px;
-    top: 40px;
-
-    width: 210px;
 
-    padding: 18px;
-
-    background:
-        rgba(255,255,255,.96);
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 25px 55px rgba(80,55,30,.12);
-
-    z-index: 15;
+.bar{
+    flex:1;
+    background:linear-gradient(#d9b98e,var(--brown));
+    border-radius:3px 3px 0 0;
+    animation:bars 2s ease-in-out infinite alternate;
 }
-
-.dashboard-title {
-
-    display: flex;
 
-    justify-content: space-between;
+.bar:nth-child(1){height:35%}
+.bar:nth-child(2){height:55%;animation-delay:.2s}
+.bar:nth-child(3){height:45%;animation-delay:.4s}
+.bar:nth-child(4){height:75%;animation-delay:.6s}
+.bar:nth-child(5){height:60%;animation-delay:.8s}
+.bar:nth-child(6){height:90%;animation-delay:1s}
 
-    font-size: 12px;
-
-    font-weight: 700;
-
-    margin-bottom: 17px;
+.dash-bottom{
+    display:flex;
+    justify-content:space-between;
+    font-size:10px;
+    color:var(--muted);
 }
-
-.live {
 
-    color: var(--brown);
-
-    font-size: 9px;
+.dash-bottom strong{
+    color:var(--brown);
 }
-
-.chart {
-
-    height: 75px;
-
-    display: flex;
 
-    align-items: end;
 
-    gap: 6px;
+/* DATA */
 
-    margin-bottom: 14px;
+.data{
+    position:absolute;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--brown);
+    box-shadow:0 0 12px #946737;
+    z-index:20;
 }
 
-.bar {
-
-    flex: 1;
-
-    height: 20%;
-
-    border-radius:
-        3px 3px 0 0;
-
-    background:
-        linear-gradient(
-            to top,
-            var(--brown),
-            var(--gold-light)
-        );
-
-    transform-origin:
-        bottom;
+.data1{
+    left:145px;
+    top:180px;
+    animation:data1 2.5s infinite;
 }
-
-.dashboard-bottom {
-
-    display: flex;
 
-    justify-content: space-between;
-
-    font-size: 10px;
-
-    color: var(--muted);
+.data2{
+    right:150px;
+    top:220px;
+    animation:data2 2.8s infinite;
 }
 
-.dashboard-bottom strong {
 
-    color: var(--brown);
+/* SERVICES */
 
-    font-size: 12px;
+.services{
+    background:var(--cream);
+    border-top:1px solid var(--line);
 }
-
-
-/* =====================================================
-   DATA PARTICLES
-===================================================== */
-
-.data-dot {
-
-    position: absolute;
-
-    width: 7px;
-    height: 7px;
 
-    border-radius: 50%;
-
-    background:
-        var(--brown);
-
-    box-shadow:
-        0 0 14px rgba(154,106,53,.8);
-
-    z-index: 30;
-
-    opacity: 0;
+.label{
+    color:var(--brown);
+    font-size:11px;
+    letter-spacing:2px;
+    font-weight:bold;
+    margin-bottom:12px;
 }
 
-.data-one {
-    left: 160px;
-    top: 190px;
+.title{
+    font-size:clamp(38px,5vw,58px);
+    line-height:1;
+    letter-spacing:-2px;
 }
 
-.data-two {
-    right: 160px;
-    top: 220px;
+.title span{
+    color:var(--brown);
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-weight:400;
 }
 
-.data-three {
-    left: 250px;
-    top: 320px;
+.description{
+    color:var(--muted);
+    max-width:600px;
+    margin-top:18px;
+    line-height:1.6;
 }
-
-
-/* =====================================================
-   CONNECTION LINES
-===================================================== */
-
-.connection {
 
-    position: absolute;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(154,106,53,.4),
-            transparent
-        );
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:45px;
 }
-
-.connection-one {
 
-    width: 160px;
-
-    left: 130px;
-    top: 190px;
-
-    transform:
-        rotate(-12deg);
+.service{
+    background:#ffffffaa;
+    border:1px solid var(--line);
+    padding:25px;
+    border-radius:11px;
+    transition:.3s;
 }
-
-.connection-two {
-
-    width: 160px;
 
-    right: 130px;
-    top: 220px;
-
-    transform:
-        rotate(8deg);
+.service:hover{
+    transform:translateY(-7px);
+    background:white;
+    box-shadow:0 20px 40px #5b3d2210;
 }
-
-
-/* =====================================================
-   SERVICES
-===================================================== */
 
-.services {
-
-    background:
-        var(--bg2);
-
-    border-top:
-        1px solid #e5dbce;
-
-    border-bottom:
-        1px solid #e5dbce;
+.icon{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    background:#e6d7c4;
+    color:var(--brown);
+    border-radius:9px;
+    margin-bottom:17px;
 }
-
-.section-label {
 
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    color: var(--brown);
-
-    margin-bottom: 12px;
+.service h3{
+    font-size:16px;
+    margin-bottom:8px;
 }
-
-.section-title {
-
-    font-size:
-        clamp(38px,5vw,58px);
-
-    line-height: 1.05;
-
-    letter-spacing: -2px;
 
-    margin-bottom: 18px;
+.service p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.5;
 }
 
-.section-title span {
 
-    font-family: Georgia, serif;
+/* PROCESS */
 
-    font-style: italic;
-
-    font-weight: 400;
-
-    color: var(--brown);
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:50px;
 }
-
-.section-description {
 
-    max-width: 620px;
-
-    font-size: 15px;
-
-    color: var(--muted);
+.number{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:var(--cream);
+    border:1px solid var(--line);
+    display:grid;
+    place-items:center;
+    color:var(--brown);
+    margin-bottom:18px;
 }
-
-.services-grid {
-
-    display: grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 15px;
-
-    margin-top: 50px;
+.process h3{
+    margin-bottom:8px;
+    font-size:16px;
 }
-
-.service-card {
-
-    min-height: 190px;
-
-    padding: 27px;
-
-    background:
-        rgba(255,255,255,.75);
-
-    border:
-        1px solid var(--border);
 
-    border-radius: 12px;
-
-    transition: .35s;
+.process p{
+    font-size:13px;
+    line-height:1.5;
+    color:var(--muted);
 }
 
-.service-card:hover {
 
-    transform:
-        translateY(-8px);
+/* STATS */
 
-    background: white;
-
-    box-shadow:
-        0 25px 50px rgba(70,45,25,.09);
+.stats{
+    padding:55px 7%;
+    background:#eee2d3;
 }
-
-.service-icon {
-
-    width: 45px;
-    height: 45px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 18px;
 
-    border-radius: 10px;
-
-    background:
-        #eee1d0;
-
-    color: var(--brown);
-
-    font-size: 20px;
+.stats-grid{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    text-align:center;
 }
 
-.service-card h3 {
-
-    font-size: 17px;
-
-    margin-bottom: 8px;
+.stat h3{
+    font-family:Georgia,serif;
+    font-size:42px;
+    color:var(--brown);
 }
-
-.service-card p {
-
-    font-size: 13px;
 
-    color: var(--muted);
+.stat p{
+    color:var(--muted);
+    font-size:11px;
 }
 
 
-/* =====================================================
-   PROCESS
-===================================================== */
+/* CTA */
 
-.process-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap: 30px;
-
-    margin-top: 55px;
+.cta-box{
+    max-width:1050px;
+    margin:auto;
+    padding:55px;
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
 }
-
-.process-number {
-
-    width: 43px;
-    height: 43px;
-
-    display: flex;
 
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 50%;
-
-    border:
-        1px solid var(--border);
-
-    background:
-        var(--bg2);
-
-    color:
-        var(--brown);
-
-    margin-bottom: 20px;
+.cta-box h2{
+    font-size:48px;
+    line-height:1;
 }
-
-.process-card h3 {
-
-    font-size: 16px;
 
-    margin-bottom: 8px;
+.cta-box h2 span{
+    display:block;
+    color:var(--brown);
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-weight:400;
 }
 
-.process-card p {
-
-    font-size: 13px;
-
-    color: var(--muted);
+.cta-box p{
+    color:var(--muted);
+    font-size:13px;
+    max-width:350px;
+    margin-bottom:18px;
 }
-
 
-/* =====================================================
-   STATS
-===================================================== */
 
-.stats {
+/* CONTACT */
 
-    padding:
-        60px 7%;
-
-    background:
-        #eee3d5;
-
-    border-top:
-        1px solid var(--border);
-
-    border-bottom:
-        1px solid var(--border);
+.contact-box{
+    max-width:1050px;
+    margin:auto;
+    padding:45px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+    background:white;
+    border:1px solid var(--line);
+    border-radius:13px;
 }
-
-.stats-grid {
 
-    max-width: 1100px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    text-align: center;
+.contact-box h2{
+    font-size:40px;
 }
-
-.stat {
 
-    border-right:
-        1px solid rgba(120,80,40,.2);
+.contact-box p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.6;
+    margin-top:15px;
 }
 
-.stat:last-child {
-    border: none;
+form{
+    display:grid;
+    gap:11px;
 }
-
-.stat h3 {
-
-    font-family:
-        Georgia,serif;
 
-    font-size: 45px;
-
-    color: var(--brown);
+input,textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid var(--line);
+    border-radius:7px;
+    background:#fcfaf7;
+    font-family:inherit;
+    outline:none;
 }
-
-.stat p {
-
-    font-size: 12px;
 
-    color: var(--muted);
+textarea{
+    min-height:110px;
 }
 
-
-/* =====================================================
-   CTA
-===================================================== */
-
-.cta {
-
-    padding-top: 80px;
+.submit{
+    border:0;
+    padding:13px;
+    border-radius:7px;
+    background:var(--brown);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
-
-.cta-box {
 
-    max-width: 1100px;
 
-    margin: auto;
+/* FOOTER */
 
-    padding: 60px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 40px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 13px;
-
-    background:
-        radial-gradient(
-            circle at right,
-            rgba(190,145,94,.16),
-            transparent 40%
-        ),
-        white;
+footer{
+    padding:30px 7%;
+    background:var(--cream);
+    border-top:1px solid var(--line);
 }
 
-.cta-box h2 {
-
-    font-size:
-        clamp(38px,5vw,55px);
-
-    line-height: 1;
-
-    letter-spacing: -2px;
+.footer{
+    max-width:1050px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    color:var(--muted);
 }
 
-.cta-box h2 span {
 
-    display: block;
+/* ANIMATIONS */
 
-    font-family: Georgia,serif;
-
-    font-style: italic;
-
-    font-weight: 400;
-
-    color: var(--brown);
+@keyframes float{
+    50%{transform:translateY(-14px)}
 }
-
-.cta-box p {
 
-    max-width: 390px;
-
-    font-size: 14px;
-
-    color: var(--muted);
-
-    margin-bottom: 20px;
+@keyframes pulse{
+    50%{opacity:.35;transform:scale(.7)}
 }
 
-
-/* =====================================================
-   CONTACT
-===================================================== */
-
-.contact {
-    padding-top: 50px;
+@keyframes glow{
+    50%{transform:scale(1.08);opacity:.7}
 }
-
-.contact-grid {
-
-    max-width: 1100px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        .8fr 1.2fr;
-
-    gap: 50px;
-
-    padding: 50px;
-
-    background: white;
-
-    border:
-        1px solid var(--border);
 
-    border-radius: 13px;
+@keyframes spin{
+    to{transform:rotate(360deg)}
 }
 
-.contact h2 {
-
-    font-size: 42px;
-
-    line-height: 1;
+@keyframes blink{
+    0%,45%,50%,100%{transform:scaleY(1)}
+    47%{transform:scaleY(.1)}
 }
-
-.contact p {
 
-    margin-top: 18px;
-
-    font-size: 14px;
-
-    color: var(--muted);
+@keyframes chest{
+    50%{box-shadow:0 0 25px #c49b68}
 }
-
-.contact-info {
-
-    margin-top: 25px;
 
-    color: var(--brown-dark);
-
-    font-size: 13px;
-
-    line-height: 2.5;
+@keyframes wave{
+    50%{transform:rotate(-35deg)}
 }
-
-form {
 
-    display: grid;
-
-    gap: 12px;
+@keyframes dashboard{
+    50%{transform:translateY(-10px)}
 }
-
-input,
-textarea {
-
-    width: 100%;
-
-    padding: 14px;
 
-    border:
-        1px solid var(--border);
-
-    border-radius: 7px;
-
-    background:
-        #fcfaf7;
-
-    outline: none;
-
-    font-family: inherit;
+@keyframes card1{
+    50%{transform:translate(8px,-8px)}
 }
-
-input:focus,
-textarea:focus {
 
-    border-color:
-        var(--brown);
-
-    background: white;
+@keyframes card2{
+    50%{transform:translate(-7px,-10px)}
 }
-
-textarea {
 
-    min-height: 120px;
-
-    resize: vertical;
+@keyframes card3{
+    50%{transform:translate(7px,-8px)}
 }
-
-.submit {
-
-    padding: 14px;
-
-    border: none;
-
-    border-radius: 7px;
-
-    background:
-        var(--brown);
-
-    color: white;
 
-    font-weight: bold;
-
-    cursor: pointer;
+@keyframes bars{
+    to{filter:brightness(1.15);transform:scaleY(.75)}
 }
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-
-    margin-top: 70px;
-
-    padding: 35px 7%;
-
-    border-top:
-        1px solid var(--border);
 
-    background:
-        var(--bg2);
+@keyframes data1{
+    0%{transform:translate(-30px,20px);opacity:0}
+    20%{opacity:1}
+    80%{opacity:1}
+    100%{transform:translate(90px,40px);opacity:0}
 }
 
-.footer-inner {
-
-    max-width: 1100px;
-
-    margin: auto;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    color: var(--muted);
-
-    font-size: 12px;
+@keyframes data2{
+    0%{transform:translate(70px,20px);opacity:0}
+    20%{opacity:1}
+    80%{opacity:1}
+    100%{transform:translate(-80px,-20px);opacity:0}
 }
-
 
-/* =====================================================
-   MOBILE
-===================================================== */
 
-@media(max-width:950px) {
+/* MOBILE */
 
-    .hero-grid {
+@media(max-width:900px){
 
-        grid-template-columns: 1fr;
+    .hero-grid{
+        grid-template-columns:1fr;
     }
 
-    .ai-scene {
-        height: 500px;
+    .ai{
+        height:480px;
     }
 
-    .services-grid {
-        grid-template-columns: repeat(2,1fr);
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .process-grid {
-        grid-template-columns: repeat(2,1fr);
+    .process-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
+    .contact-box{
+        grid-template-columns:1fr;
     }
 
-    .cta-box {
-        flex-direction: column;
-        align-items: flex-start;
+    .cta-box{
+        flex-direction:column;
+        align-items:flex-start;
     }
 
-    .nav-links {
-
-        display: none;
-
-        position: absolute;
-
-        top: 70px;
-
-        left: 7%;
-        right: 7%;
-
-        padding: 25px;
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        background: white;
-
-        border:
-            1px solid var(--border);
-
-        border-radius: 10px;
+    .links{
+        display:none;
     }
 
-    .nav-links.show {
-        display: flex;
-    }
-
-    .menu {
-        display: block;
+    .menu{
+        display:block;
     }
 }
 
+@media(max-width:600px){
 
-@media(max-width:600px) {
-
-    section {
-        padding: 75px 6%;
+    section{
+        padding:75px 6%;
     }
 
-    .hero h1 {
-
-        font-size: 52px;
-
-        letter-spacing: -3px;
+    h1{
+        font-size:52px;
     }
 
     .services-grid,
-    .process-grid {
-        grid-template-columns: 1fr;
+    .process-grid{
+        grid-template-columns:1fr;
     }
 
-    .stats-grid {
-
-        grid-template-columns: 1fr 1fr;
-
-        gap: 25px;
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+        gap:25px;
     }
 
-    .stat {
-        border: none;
+    .ai{
+        transform:scale(.72);
+        width:140%;
+        margin-left:-20%;
     }
 
-    .ai-scene {
-
-        transform:
-            scale(.70);
-
-        width: 140%;
-
-        margin-left: -20%;
+    .cta-box{
+        padding:35px 25px;
     }
 
-    .cta-box {
-        padding: 35px;
+    .cta-box h2{
+        font-size:38px;
     }
 
-    .contact-grid {
-        padding: 30px 20px;
+    .contact-box{
+        padding:30px 20px;
     }
 
-    .footer-inner {
-
-        flex-direction: column;
-
-        gap: 12px;
-
-        text-align: center;
+    .footer{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
     }
 }
 
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+<!-- NAV -->
 
-<nav class="navbar">
+<nav>
+<div class="nav">
 
-<div class="nav-inner">
-
-<a href="#" class="logo">
+<div class="logo">
 NEX<span>AI.</span>
-</a>
+</div>
 
-<div class="nav-links" id="navLinks">
-
+<div class="links">
 <a href="#services">Services</a>
-
 <a href="#process">Process</a>
-
-<a href="#why">Why Us</a>
-
 <a href="#contact">Contact</a>
-
-<a href="#contact" class="nav-button">
-Let's Talk →
-</a>
-
+<a href="#contact" class="nav-btn">Let's Talk →</a>
 </div>
 
-<div class="menu" onclick="toggleMenu()">
-☰
-</div>
+<div class="menu">☰</div>
 
 </div>
-
 </nav>
 
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- HERO -->
 
 <section class="hero">
 
 <div class="container hero-grid">
 
-
-<div class="hero-content">
+<div>
 
 <div class="badge">
-
-<span class="badge-dot"></span>
-
-AGENTIC AI SOLUTIONS
-
+<i></i> AGENTIC AI SOLUTIONS
 </div>
-
 
 <h1>
-
 Build smarter.
-
-<span>
-Automate everything.
-</span>
-
+<span>Automate everything.</span>
 </h1>
 
-
 <p>
-
-We build intelligent AI agents that reason,
-plan and execute tasks — helping your business
-move faster and operate smarter.
-
+We build intelligent AI agents that reason, plan and execute tasks — helping businesses automate operations, improve efficiency and scale faster.
 </p>
 
-
 <div class="buttons">
-
-<a
-href="#contact"
-class="btn btn-primary"
->
-Build Your AI Agent →
-</a>
-
-<a
-href="#services"
-class="btn btn-secondary"
->
-Explore Services
-</a>
-
+<a href="#contact" class="btn">Build Your AI Agent →</a>
+<a href="#services" class="btn alt">Explore Services</a>
 </div>
 
 </div>
 
 
+<!-- AI VISUAL -->
 
-<!-- =====================================================
-     AI AGENT
-===================================================== -->
+<div class="ai">
 
-<div class="ai-scene">
-
-
-<div class="scene-glow"></div>
-
+<div class="glow"></div>
 <div class="orbit"></div>
-
-<div class="orbit-two"></div>
-
-
-<!-- CONNECTIONS -->
-
-<div class="connection connection-one"></div>
-
-<div class="connection connection-two"></div>
+<div class="orbit2"></div>
 
 
-<!-- DATA PARTICLES -->
-
-<div class="data-dot data-one"></div>
-
-<div class="data-dot data-two"></div>
-
-<div class="data-dot data-three"></div>
-
-
-
-<!-- TASK CARD -->
-
-<div class="task task-one">
-
-<span class="check">✓</span>
-
-<strong>
-Customer Request
-</strong>
-
-Analyzing incoming request...
-
+<div class="card card1">
+<b>✓</b>
+<strong>Customer Request</strong>
+AI is analyzing the request...
 </div>
 
 
-
-<!-- TASK CARD -->
-
-<div class="task task-two">
-
-<span class="check">✓</span>
-
-<strong>
-Automating Workflow
-</strong>
-
+<div class="card card2">
+<b>✓</b>
+<strong>Workflow Automation</strong>
 Processing business operations...
+</div>
+
+
+<div class="dashboard">
+
+<div class="dash-title">
+<span>Business Dashboard</span>
+<span class="live">● LIVE</span>
+</div>
+
+<div class="chart">
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+</div>
+
+<div class="dash-bottom">
+<span>Revenue Growth</span>
+<strong>+38.4%</strong>
+</div>
 
 </div>
 
 
-
-<!-- =================================================
-     ROBOT
-================================================= -->
+<!-- ROBOT -->
 
 <div class="robot">
 
 <div class="antenna"></div>
 
+<div class="head">
 
-<div class="robot-head">
-
-<div class="ear left"></div>
-
-<div class="ear right"></div>
-
-
-<div class="robot-face">
-
+<div class="face">
 <div class="eye"></div>
-
 <div class="eye"></div>
-
 </div>
 
 </div>
 
-
-<div class="robot-body">
+<div class="body">
 
 <div class="arm left">
-
 <div class="hand"></div>
-
 </div>
-
 
 <div class="arm right">
-
 <div class="hand"></div>
-
 </div>
 
-
-<div class="robot-chest">
-✦
-</div>
+<div class="chest">✦</div>
 
 </div>
 
 </div>
 
 
-
-<!-- =================================================
-     DASHBOARD
-================================================= -->
-
-<div class="dashboard">
-
-<div class="dashboard-title">
-
-<span>
-Business Dashboard
-</span>
-
-<span class="live">
-● LIVE
-</span>
-
+<div class="card card3">
+<b>✓</b>
+<strong>Task Completed</strong>
+AI successfully completed the workflow.
 </div>
 
 
-<div class="chart">
-
-<div class="bar"></div>
-
-<div class="bar"></div>
-
-<div class="bar"></div>
-
-<div class="bar"></div>
-
-<div class="bar"></div>
-
-<div class="bar"></div>
-
-</div>
-
-
-<div class="dashboard-bottom">
-
-<span>
-Revenue Growth
-</span>
-
-<strong>
-+38.4%
-</strong>
-
-</div>
-
-</div>
-
-
-
-<!-- COMPLETED TASK -->
-
-<div class="task task-three">
-
-<span class="check">✓</span>
-
-<strong>
-Task Completed
-</strong>
-
-AI successfully completed
-the workflow.
-
-</div>
-
+<div class="data data1"></div>
+<div class="data data2"></div>
 
 </div>
 
@@ -1879,153 +1021,60 @@ the workflow.
 </section>
 
 
+<!-- SERVICES -->
 
-<!-- =====================================================
-     SERVICES
-===================================================== -->
-
-<section
-class="services"
-id="services"
->
+<section class="services" id="services">
 
 <div class="container">
 
-<div class="section-label">
-WHAT WE DO
-</div>
+<div class="label">WHAT WE DO</div>
 
-
-<h2 class="section-title reveal">
-
-AI systems that work for
-<span>you.</span>
-
+<h2 class="title">
+AI systems that work for <span>you.</span>
 </h2>
 
-
-<p class="section-description reveal">
-
-From autonomous agents to seamless automation,
-we create intelligent systems that drive real
-business impact.
-
+<p class="description">
+From autonomous agents to intelligent automation, we create AI systems designed around real business problems.
 </p>
 
 
 <div class="services-grid">
 
-
-<div class="service-card reveal">
-
-<div class="service-icon">
-◈
+<div class="service">
+<div class="icon">◈</div>
+<h3>Agentic AI</h3>
+<p>Autonomous AI agents that reason, plan and complete complex tasks.</p>
 </div>
 
-<h3>
-Agentic AI
-</h3>
-
-<p>
-Autonomous AI agents that reason,
-plan, use tools and complete complex
-tasks with minimal human input.
-</p>
-
+<div class="service">
+<div class="icon">⚡</div>
+<h3>AI Automation</h3>
+<p>Automate repetitive workflows and business operations.</p>
 </div>
 
-
-<div class="service-card reveal">
-
-<div class="service-icon">
-⚡
+<div class="service">
+<div class="icon">●</div>
+<h3>AI Chatbots</h3>
+<p>Intelligent conversational agents for customers and teams.</p>
 </div>
 
-<h3>
-AI Automation
-</h3>
-
-<p>
-Automate repetitive workflows and
-integrate AI into your existing
-business processes.
-</p>
-
+<div class="service">
+<div class="icon">↗</div>
+<h3>AI Integrations</h3>
+<p>Connect AI with your CRM, APIs, databases and existing tools.</p>
 </div>
 
-
-<div class="service-card reveal">
-
-<div class="service-icon">
-●
+<div class="service">
+<div class="icon">⚙</div>
+<h3>Custom AI</h3>
+<p>AI solutions designed specifically around your business.</p>
 </div>
 
-<h3>
-AI Chatbots
-</h3>
-
-<p>
-Intelligent conversational agents for
-customer support, sales and internal
-operations.
-</p>
-
+<div class="service">
+<div class="icon">◎</div>
+<h3>AI Strategy</h3>
+<p>Find practical opportunities where AI can create value.</p>
 </div>
-
-
-<div class="service-card reveal">
-
-<div class="service-icon">
-🔗
-</div>
-
-<h3>
-AI Integrations
-</h3>
-
-<p>
-Connect AI systems with your CRM,
-databases, APIs and existing tools.
-</p>
-
-</div>
-
-
-<div class="service-card reveal">
-
-<div class="service-icon">
-⚙
-</div>
-
-<h3>
-Custom AI Solutions
-</h3>
-
-<p>
-Tailored AI systems designed around
-your unique business requirements.
-</p>
-
-</div>
-
-
-<div class="service-card reveal">
-
-<div class="service-icon">
-◎
-</div>
-
-<h3>
-AI Strategy
-</h3>
-
-<p>
-Identify opportunities and implement
-AI where it creates maximum value.
-</p>
-
-</div>
-
 
 </div>
 
@@ -2034,103 +1083,43 @@ AI where it creates maximum value.
 </section>
 
 
-
-<!-- =====================================================
-     PROCESS
-===================================================== -->
+<!-- PROCESS -->
 
 <section id="process">
 
 <div class="container">
 
-<div class="section-label">
-OUR PROCESS
-</div>
+<div class="label">OUR PROCESS</div>
 
-
-<h2 class="section-title reveal">
-
-From idea to intelligent
-<span>system.</span>
-
+<h2 class="title">
+From idea to intelligent <span>system.</span>
 </h2>
-
 
 <div class="process-grid">
 
-
-<div class="process-card reveal">
-
-<div class="process-number">
-01
+<div class="process">
+<div class="number">01</div>
+<h3>Discover</h3>
+<p>Understand your business and identify AI opportunities.</p>
 </div>
 
-<h3>
-Discover
-</h3>
-
-<p>
-We understand your business,
-challenges and opportunities
-for AI automation.
-</p>
-
+<div class="process">
+<div class="number">02</div>
+<h3>Design</h3>
+<p>Architect the agent, workflow and integrations.</p>
 </div>
 
-
-<div class="process-card reveal">
-
-<div class="process-number">
-02
+<div class="process">
+<div class="number">03</div>
+<h3>Build</h3>
+<p>Develop, test and integrate your AI system.</p>
 </div>
 
-<h3>
-Design
-</h3>
-
-<p>
-We architect the AI solution,
-workflows, tools and integrations.
-</p>
-
+<div class="process">
+<div class="number">04</div>
+<h3>Scale</h3>
+<p>Deploy, monitor and continuously improve.</p>
 </div>
-
-
-<div class="process-card reveal">
-
-<div class="process-number">
-03
-</div>
-
-<h3>
-Build
-</h3>
-
-<p>
-We develop, test and integrate
-the system with your environment.
-</p>
-
-</div>
-
-
-<div class="process-card reveal">
-
-<div class="process-number">
-04
-</div>
-
-<h3>
-Scale
-</h3>
-
-<p>
-We deploy, monitor and continuously
-improve the system as you grow.
-</p>
-
-</div>
-
 
 </div>
 
@@ -2139,114 +1128,58 @@ improve the system as you grow.
 </section>
 
 
-
-<!-- =====================================================
-     STATS
-===================================================== -->
+<!-- STATS -->
 
 <section class="stats">
 
 <div class="stats-grid">
 
-
-<div class="stat reveal">
-
-<h3>
-24/7
-</h3>
-
-<p>
-Autonomous Operations
-</p>
-
+<div class="stat">
+<h3>24/7</h3>
+<p>Autonomous Operations</p>
 </div>
 
-
-<div class="stat reveal">
-
-<h3>
-10×
-</h3>
-
-<p>
-Workflow Efficiency
-</p>
-
+<div class="stat">
+<h3>10×</h3>
+<p>Workflow Efficiency</p>
 </div>
 
-
-<div class="stat reveal">
-
-<h3>
-99%
-</h3>
-
-<p>
-Reliability
-</p>
-
+<div class="stat">
+<h3>99%</h3>
+<p>Reliability</p>
 </div>
 
-
-<div class="stat reveal">
-
-<h3>
-∞
-</h3>
-
-<p>
-Possibilities
-</p>
-
+<div class="stat">
+<h3>∞</h3>
+<p>Possibilities</p>
 </div>
-
 
 </div>
 
 </section>
 
 
+<!-- CTA -->
 
-<!-- =====================================================
-     CTA
-===================================================== -->
+<section>
 
-<section class="cta">
-
-<div class="cta-box reveal">
+<div class="cta-box">
 
 <div>
-
 <h2>
-
-Let's build your next
-
-<span>
-AI advantage.
-</span>
-
+Build your next
+<span>AI advantage.</span>
 </h2>
-
 </div>
 
-
 <div>
-
 <p>
-
-Share your goals and let's explore
-how AI agents can transform
-your business.
-
+Tell us what you're trying to automate and let's build an intelligent solution for your business.
 </p>
 
-<a
-href="#contact"
-class="btn btn-primary"
->
+<a href="#contact" class="btn">
 Start a Conversation →
 </a>
-
 </div>
 
 </div>
@@ -2254,107 +1187,53 @@ Start a Conversation →
 </section>
 
 
+<!-- CONTACT -->
 
-<!-- =====================================================
-     CONTACT
-===================================================== -->
+<section id="contact">
 
-<section
-class="contact"
-id="contact"
->
-
-<div class="contact-grid reveal">
-
+<div class="contact-box">
 
 <div>
 
-<div class="section-label">
-CONTACT US
-</div>
-
+<div class="label">CONTACT US</div>
 
 <h2>
-Let's create
-something intelligent.
+Let's create something intelligent.
 </h2>
 
-
 <p>
-
-Tell us what you're trying to automate
-and we'll help you identify the right
-AI solution.
-
+Tell us what you're trying to automate and we'll help you identify the right AI solution.
 </p>
 
-
-<div class="contact-info">
-
-<div>
-✉ hello@nexai.com
-</div>
-
-<div>
-☎ +1 (123) 456-7890
-</div>
-
-<div>
-◉ Remote Worldwide
-</div>
-
-</div>
-
 </div>
 
 
-<form id="contactForm">
+<form id="form">
 
-<input
-type="text"
-placeholder="Your Name"
-required
->
+<input type="text" placeholder="Your Name" required>
 
-<input
-type="email"
-placeholder="Email Address"
-required
->
+<input type="email" placeholder="Email Address" required>
 
-<input
-type="text"
-placeholder="Company"
->
+<input type="text" placeholder="Company">
 
-<textarea
-placeholder="Tell us about your project..."
-required
-></textarea>
+<textarea placeholder="Tell us about your project..." required></textarea>
 
-<button
-type="submit"
-class="submit"
->
+<button class="submit">
 Send Message →
 </button>
 
 </form>
 
-
 </div>
 
 </section>
 
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
-<div class="footer-inner">
+<div class="footer">
 
 <div class="logo">
 NEX<span>AI.</span>
@@ -2373,755 +1252,13 @@ LinkedIn · Instagram · Email
 </footer>
 
 
-
-<!-- =====================================================
-     JAVASCRIPT + GSAP ANIMATIONS
-===================================================== -->
-
 <script>
 
-
-/* =====================================================
-   REGISTER GSAP
-===================================================== */
-
-gsap.registerPlugin(ScrollTrigger);
-
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-function toggleMenu() {
-
-    document
-        .getElementById("navLinks")
-        .classList.toggle("show");
-
-}
-
-
-
-/* =====================================================
-   HERO ENTRANCE
-===================================================== */
-
-const heroAnimation = gsap.timeline();
-
-
-heroAnimation
-
-.from(".navbar", {
-
-    y: -80,
-
-    opacity: 0,
-
-    duration: .8,
-
-    ease: "power3.out"
-
-})
-
-
-.from(".badge", {
-
-    y: 30,
-
-    opacity: 0,
-
-    duration: .6,
-
-    ease: "power3.out"
-
-}, "-=.3")
-
-
-.from(".hero h1", {
-
-    y: 70,
-
-    opacity: 0,
-
-    duration: 1,
-
-    ease: "power4.out"
-
-}, "-=.2")
-
-
-.from(".hero p", {
-
-    y: 30,
-
-    opacity: 0,
-
-    duration: .7,
-
-    ease: "power3.out"
-
-}, "-=.5")
-
-
-.from(".buttons", {
-
-    y: 25,
-
-    opacity: 0,
-
-    duration: .6
-
-}, "-=.4")
-
-
-.from(".ai-scene", {
-
-    scale: .7,
-
-    opacity: 0,
-
-    duration: 1.2,
-
-    ease: "power3.out"
-
-}, "-=.8");
-
-
-
-/* =====================================================
-   ROBOT FLOATING
-===================================================== */
-
-gsap.to(".robot", {
-
-    y: -14,
-
-    duration: 2.5,
-
-    ease: "sine.inOut",
-
-    repeat: -1,
-
-    yoyo: true
-
+document.getElementById("form").addEventListener("submit",function(e){
+    e.preventDefault();
+    alert("Thank you! We'll get back to you soon.");
+    this.reset();
 });
-
-
-
-/* =====================================================
-   ROBOT HEAD MOVEMENT
-===================================================== */
-
-gsap.to(".robot-head", {
-
-    rotation: 2,
-
-    duration: 2,
-
-    ease: "sine.inOut",
-
-    repeat: -1,
-
-    yoyo: true
-
-});
-
-
-
-/* =====================================================
-   ROBOT ARM
-===================================================== */
-
-gsap.to(".arm.right", {
-
-    rotation: -55,
-
-    duration: 1.3,
-
-    ease: "power2.inOut",
-
-    repeat: -1,
-
-    yoyo: true,
-
-    repeatDelay: 1
-
-});
-
-
-
-/* =====================================================
-   ROBOT EYES
-===================================================== */
-
-gsap.to(".eye", {
-
-    scale: 1.2,
-
-    opacity: .65,
-
-    duration: .8,
-
-    ease: "sine.inOut",
-
-    repeat: -1,
-
-    yoyo: true
-
-});
-
-
-
-/* =====================================================
-   ROBOT CHEST AI PROCESSING
-===================================================== */
-
-gsap.to(".robot-chest", {
-
-    scale: 1.15,
-
-    boxShadow:
-        "0 0 25px rgba(193,154,105,.8)",
-
-    duration: .8,
-
-    ease: "sine.inOut",
-
-    repeat: -1,
-
-    yoyo: true
-
-});
-
-
-
-/* =====================================================
-   ORBIT ANIMATION
-===================================================== */
-
-gsap.to(".orbit", {
-
-    rotation: 340,
-
-    duration: 12,
-
-    ease: "none",
-
-    repeat: -1
-
-});
-
-
-gsap.to(".orbit-two", {
-
-    rotation: 360,
-
-    duration: 20,
-
-    ease: "none",
-
-    repeat: -1
-
-});
-
-
-
-/* =====================================================
-   DASHBOARD FLOAT
-===================================================== */
-
-gsap.to(".dashboard", {
-
-    y: -12,
-
-    duration: 2.5,
-
-    ease: "sine.inOut",
-
-    repeat: -1,
-
-    yoyo: true
-
-});
-
-
-
-/* =====================================================
-   TASK CARDS
-===================================================== */
-
-gsap.to(".task-one", {
-
-    x: 8,
-
-    y: -10,
-
-    duration: 2,
-
-    ease: "sine.inOut",
-
-    repeat: -1,
-
-    yoyo: true
-
-});
-
-
-gsap.to(".task-two", {
-
-    x: -8,
-
-    y: -10,
-
-    duration: 2.7,
-
-    ease: "sine.inOut",
-
-    repeat: -1,
-
-    yoyo: true
-
-});
-
-
-gsap.to(".task-three", {
-
-    x: 8,
-
-    y: -8,
-
-    duration: 2.3,
-
-    ease: "sine.inOut",
-
-    repeat: -1,
-
-    yoyo: true
-
-});
-
-
-
-/* =====================================================
-   CHART INITIAL ANIMATION
-===================================================== */
-
-gsap.fromTo(
-
-    ".bar",
-
-    {
-        scaleY: 0
-    },
-
-    {
-        scaleY: 1,
-
-        duration: 1.3,
-
-        stagger: .12,
-
-        ease: "power3.out",
-
-        delay: 1
-    }
-
-);
-
-
-
-/* =====================================================
-   LIVE CHART MOVEMENT
-===================================================== */
-
-function animateChart() {
-
-    document
-        .querySelectorAll(".bar")
-        .forEach((bar) => {
-
-            const height =
-                0.5 +
-                Math.random() * .5;
-
-            gsap.to(bar, {
-
-                scaleY: height,
-
-                duration: 1,
-
-                ease: "power2.inOut"
-
-            });
-
-        });
-
-}
-
-setInterval(
-    animateChart,
-    2500
-);
-
-
-
-/* =====================================================
-   DATA PARTICLE 1
-   BUSINESS → AI
-===================================================== */
-
-function dataToAI() {
-
-    gsap.fromTo(
-
-        ".data-one",
-
-        {
-            x: -70,
-
-            y: 0,
-
-            opacity: 0
-
-        },
-
-        {
-            x: 90,
-
-            y: 25,
-
-            opacity: 1,
-
-            duration: 1.5,
-
-            ease: "power1.inOut",
-
-            onComplete: () => {
-
-                gsap.to(".robot-chest", {
-
-                    scale: 1.3,
-
-                    duration: .2,
-
-                    yoyo: true,
-
-                    repeat: 1
-
-                });
-
-            }
-
-        }
-
-    );
-
-}
-
-dataToAI();
-
-setInterval(
-    dataToAI,
-    2800
-);
-
-
-
-/* =====================================================
-   DATA PARTICLE 2
-   AI → DASHBOARD
-===================================================== */
-
-function aiToDashboard() {
-
-    gsap.fromTo(
-
-        ".data-two",
-
-        {
-
-            x: 70,
-
-            opacity: 0
-
-        },
-
-        {
-
-            x: -80,
-
-            y: -20,
-
-            opacity: 1,
-
-            duration: 1.5,
-
-            ease: "power1.inOut"
-
-        }
-
-    );
-
-}
-
-aiToDashboard();
-
-setInterval(
-    aiToDashboard,
-    3000
-);
-
-
-
-/* =====================================================
-   DATA PARTICLE 3
-===================================================== */
-
-function dataFlow() {
-
-    gsap.fromTo(
-
-        ".data-three",
-
-        {
-
-            x: -50,
-
-            opacity: 0
-
-        },
-
-        {
-
-            x: 100,
-
-            y: -40,
-
-            opacity: 1,
-
-            duration: 1.8,
-
-            ease: "power1.inOut"
-
-        }
-
-    );
-
-}
-
-dataFlow();
-
-setInterval(
-    dataFlow,
-    3200
-);
-
-
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-gsap.utils
-    .toArray(".reveal")
-    .forEach((element) => {
-
-        gsap.fromTo(
-
-            element,
-
-            {
-                y: 60,
-                opacity: 0
-            },
-
-            {
-
-                y: 0,
-
-                opacity: 1,
-
-                duration: .9,
-
-                ease: "power3.out",
-
-                scrollTrigger: {
-
-                    trigger: element,
-
-                    start: "top 85%",
-
-                    toggleActions:
-                        "play none none reverse"
-
-                }
-
-            }
-
-        );
-
-    });
-
-
-
-/* =====================================================
-   SERVICES STAGGER
-===================================================== */
-
-gsap.from(".service-card", {
-
-    scrollTrigger: {
-
-        trigger: ".services-grid",
-
-        start: "top 80%"
-
-    },
-
-    y: 60,
-
-    opacity: 0,
-
-    duration: .8,
-
-    stagger: .12,
-
-    ease: "power3.out"
-
-});
-
-
-
-/* =====================================================
-   PROCESS ANIMATION
-===================================================== */
-
-gsap.from(".process-card", {
-
-    scrollTrigger: {
-
-        trigger: ".process-grid",
-
-        start: "top 80%"
-
-    },
-
-    y: 50,
-
-    opacity: 0,
-
-    duration: .8,
-
-    stagger: .18,
-
-    ease: "power3.out"
-
-});
-
-
-
-/* =====================================================
-   STATS
-===================================================== */
-
-gsap.from(".stat", {
-
-    scrollTrigger: {
-
-        trigger: ".stats",
-
-        start: "top 80%"
-
-    },
-
-    scale: .7,
-
-    opacity: 0,
-
-    duration: .8,
-
-    stagger: .15,
-
-    ease: "back.out(1.7)"
-
-});
-
-
-
-/* =====================================================
-   CTA
-===================================================== */
-
-gsap.from(".cta-box", {
-
-    scrollTrigger: {
-
-        trigger: ".cta-box",
-
-        start: "top 85%"
-
-    },
-
-    y: 70,
-
-    opacity: 0,
-
-    duration: 1,
-
-    ease: "power3.out"
-
-});
-
-
-
-/* =====================================================
-   CONTACT
-===================================================== */
-
-gsap.from(".contact-grid", {
-
-    scrollTrigger: {
-
-        trigger: ".contact-grid",
-
-        start: "top 85%"
-
-    },
-
-    y: 60,
-
-    opacity: 0,
-
-    duration: 1,
-
-    ease: "power3.out"
-
-});
-
-
-
-/* =====================================================
-   CONTACT FORM
-===================================================== */
-
-document
-    .getElementById("contactForm")
-    .addEventListener(
-        "submit",
-        function(event) {
-
-            event.preventDefault();
-
-            alert(
-                "Thank you! We'll get back to you soon."
-            );
-
-            this.reset();
-
-        }
-    );
-
 
 </script>
 
